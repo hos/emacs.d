@@ -104,26 +104,12 @@
 
 ;; expand-region bindings
 (global-set-key (kbd "C-=") 'er/expand-region)
-(delete-selection-mode 1)
 
 (global-set-key (kbd "C-S-d") 'kill-whole-line)
 
 (global-set-key (kbd "C-c C-c") 'comment-or-uncomment-region)
 
-;; Latex
-
-(defun my-run-latex ()
-  (interactive)
-  (TeX-save-document (TeX-master-file))
-  (TeX-command "LaTeX" 'TeX-master-file -1))
-
-(add-hook 'LaTeX-mode-hook 
-          (function (lambda ()
-                    (local-set-key (kbd "C-c C-a") 'my-run-latex)
-                     )))
-
 ;; Easier buffer switching
-
 (global-set-key [C-tab] 'next-buffer)
 (global-set-key [C-S-iso-lefttab] 'bury-buffer)
 
@@ -137,7 +123,7 @@
 (global-set-key [f5] 'compile)
 
 ;; Ctrl-Tab to spellcheck the word under the cursor.
-(global-set-key [C-tab] 'ispell-word)
+;; (global-set-key [C-tab] 'ispell-word)
 
 
 (provide 'keybindings)

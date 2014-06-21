@@ -264,18 +264,22 @@
 ;; (setq-default inferior-S+6-program-name "Splus")
 ;; (setq-default inferior-R-program-name "R")
 
-(when (fboundp 'windmove-default-keybindings)
-  (windmove-default-keybindings))
+; (when (fboundp 'windmove-default-keybindings)
+;   (windmove-default-keybindings))
 
 
-(package-initialize)
+; (package-initialize)
 
-(yas-global-mode 1)
-(global-undo-tree-mode)
 
 ;; site-lisp packages
 (require 'multiple-cursors)
 (require 'expand-region)
+(require 'yasnippet)
+(require 'undo-tree)
+
+(yas-global-mode 1)
+(global-undo-tree-mode)
+
 
 ;; load keybindings
 (require 'keybindings)

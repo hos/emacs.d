@@ -7,3 +7,9 @@
 [submodule "themes/monokai-theme"]
 	path = themes/monokai-theme
 	url = https://github.com/nrs/monokai-emacs
+[submodule "site-lisp/yasnippet"]
+	path = site-lisp/yasnippet
+	url = https://github.com/capitaomorte/yasnippet
+[submodule "site-lisp/undo-tree"]
+	path = site-lisp/undo-tree
+	url = https://github.com/emacsmirror/undo-tree
