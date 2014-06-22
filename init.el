@@ -87,63 +87,6 @@
 ;;	 (ispell-change-dictionary "svenska")
 ;;))
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;			      Tab completion
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; Define a -hook for all modes where we want tab completion.
-;; (add-hook 'c-mode-common-hook
-;;           (function (lambda ()
-;;                     (local-set-key (kbd "") 'indent-or-complete)
-;;                      )))
-;; (add-hook 'text-mode-hook
-;;           (function (lambda ()
-;;                     (local-set-key (kbd "") 'indent-or-complete)
-;;                      )))
-;; (add-hook 'emacs-lisp-mode-hook 
-;;           (function (lambda ()
-;;                     (local-set-key (kbd "") 'indent-or-complete)
-;;                      )))
-;; (add-hook 'LaTeX-mode-hook 
-;;           (function (lambda ()
-;;                     (local-set-key (kbd "") 'indent-or-complete)
-;;                      )))
-;; (add-hook 'TeX-mode-hook 
-;;           (function (lambda ()
-;;                     (local-set-key (kbd "") 'indent-or-complete)
-;;                      )))
-
-;; (defun indent-or-complete ()
-;;   "Complete if point is at end of a word, otherwise indent line."
-;;   (interactive)
-;;   (if (looking-at "\\>")
-;;     (dabbrev-expand nil)
-;;   (indent-for-tab-command)
-;;    ))
-
-;; ;; The order that different completes are tested.
-;; (setq hippie-expand-try-functions-list
-;;       '(try-expand-dabbrev-visible
-;; 	try-expand-dabbrev
-;;         try-expand-dabbrev-all-buffers
-;;         try-expand-dabbrev-from-kill
-;;         ; try-expand-all-abbrevs
-;;         ; try-expand-line 
-;;         ; try-expand-line-all-buffers
-;;         ; try-expand-whole-kill
-;;         ; try-expand-list
-;;         ; try-expand-list-all-buffers
-;;         ; try-complete-file-name-partially
-;;         ; try-complete-file-name 
-;;         ; try-complete-lisp-symbol-partially
-;;         ; try-complete-lisp-symbol 
-;; 	))
-
-;; ;; TAB expands even during isearch (Ctrl-S)
-;; (define-key isearch-mode-map [tab] 'isearch-yank-word)
-
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;		          Small functions
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -255,31 +198,15 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/monokai-theme")
 (load-theme 'monokai t)
 
-;auto-mode-alist (append (list '("\\.S$" . S-mode)
-;; 			      '("\\.s$" . S-mode)
-;; 			      '("\\.R$" . R-mode)
-;; 			      '("\\.r$" . R-mode)
-;; 	                )
-;; 		      auto-mode-alist)
-;; (setq-default inferior-S+6-program-name "Splus")
-;; (setq-default inferior-R-program-name "R")
-
-; (when (fboundp 'windmove-default-keybindings)
-;   (windmove-default-keybindings))
-
-
-; (package-initialize)
-
-
 ;; site-lisp packages
 (require 'multiple-cursors)
 (require 'expand-region)
 (require 'yasnippet)
 (require 'undo-tree)
+(require 'auto-complete)
 
 (yas-global-mode 1)
 (global-undo-tree-mode)
-
 
 ;; load keybindings
 (require 'keybindings)

@@ -124,6 +124,6 @@
 
 ;; Ctrl-Tab to spellcheck the word under the cursor.
 ;; (global-set-key [C-tab] 'ispell-word)
-
+(define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
 
 (provide 'keybindings)
