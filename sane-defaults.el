@@ -128,4 +128,10 @@
 ;;     (dotimes (i 10)
 ;;       (when (= p (point)) ad-do-it))))
 
+;; Use spaces instead of tabs.
+(setq-default indent-tabs-mode nil)
+
+;; Make sure that the file ends in a newline.
+(setq require-final-newline t)
+
 (provide 'sane-defaults)

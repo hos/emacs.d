@@ -18,6 +18,7 @@
 
 (require 'appearance)
 (require 'sane-defaults)
+(require 'enhancements)
 
 ;; Language defaults
 (require 'setup-c)
@@ -41,6 +42,11 @@
 ;;  (hilit-recenter (/ (window-height) 2))
 )
 
+(defun next-buffer () 
+  "Go to the buffer which is at the end of the buffer-list. 
+   This is the symmetric of burry-buffer." 
+  (interactive)
+  (switch-to-buffer (nth (- (length (buffer-list)) 1) (buffer-list))))
 
 ;;(add-hook 'c-mode-common-hook   'highlight-changes-mode)    ; in C-mode
 ;;(add-hook 'emacs-lisp-mode-hook 'highlight-changes-mode)    ; in Lisp-mode
@@ -56,24 +62,6 @@
 ;; Make text-mode the default mode, so that we can use the tab-completion
 ;; feature in files that don't have an extension.
 (setq default-major-mode 'text-mode)
-
-;; Use spaces instead of tabs.
-(setq-default indent-tabs-mode nil)
-
-;; Move to match if on (){}[] when pressing %, otherwise insert %.
-(defun match-paren (arg)
-  "Go to the matching paren if on a paren; otherwise insert %."
-  (interactive "p")
-  (cond ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
-	((looking-at "\\s\)") (forward-char 1) (backward-list 1))
-	((looking-at "\\s\{") (forward-list 1) (backward-char 1))
-	((looking-at "\\s\}") (forward-char 1) (backward-list 1))
-	((looking-at "\\s[") (forward-list 1) (backward-char 1))
-	((looking-at "\\s]") (forward-char 1) (backward-list 1))
-	(t (self-insert-command (or arg 1)))))
-
-;; Make sure that the file ends in a newline.
-(setq require-final-newline t)
 
 ;; Spelling
 
@@ -133,28 +121,6 @@
 ;; Compilation command
 (setq compilation-scroll-output 1)
 
-;; Copy current line
-
-(defun copy-line (arg)
-  "Copy lines (as many as prefix argument) in the kill ring.
-      Ease of use features:
-      - Move to start of next line.
-      - Appends the copy on sequential calls.
-      - Use newline as last char even on the last line of the buffer.
-      - If region is active, copy its lines."
-  (interactive "p")
-  (let ((beg (line-beginning-position))
-        (end (line-end-position arg)))
-    (when mark-active
-      (if (> (point) (mark))
-          (setq beg (save-excursion (goto-char (mark)) (line-beginning-position)))
-        (setq end (save-excursion (goto-char (mark)) (line-end-position)))))
-    (if (eq last-command 'copy-line)
-        (kill-append (buffer-substring beg end) (< end beg))
-      (kill-ring-save beg end)))
-  (kill-append "\n" nil)
-  (beginning-of-line (or (and arg (1+ arg)) 2))
-  (if (and arg (not (= 1 arg))) (message "%d lines copied" arg)))
 
 ;; Toggle fullscreen
 
@@ -192,8 +158,8 @@
 ;; (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
 ;; (add-to-list 'auto-mode-alist '("\\.inc$" . php-mode))
 
-;; Themes
 
+;; Themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/monokai-theme")
 (load-theme 'monokai t)
@@ -204,7 +170,9 @@
 (require 'yasnippet)
 (require 'undo-tree)
 (require 'auto-complete)
+(require 'evil)
 
+;; site-lisp package options
 (yas-global-mode 1)
 (global-undo-tree-mode)
 

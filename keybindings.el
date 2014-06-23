@@ -2,20 +2,20 @@
 ;; (define-key global-map [mouse-4] (lambda () (interactive) (scroll-down 4)))
 ;; (define-key global-map [mouse-5] (lambda () (interactive) (scroll-up 4)))
 
-;; Wheel mouse +  Control change buffer we are looking at
-(defun next-buffer () 
-  "Go to the buffer which is at the end of the buffer-list. 
-   This is the symmetric of burry-buffer." 
-  (interactive)
-  (switch-to-buffer (nth (- (length (buffer-list)) 1) (buffer-list))))
-
 (define-key global-map [(control mouse-4)] 'next-buffer)
 (define-key global-map [(control mouse-5)] 'bury-buffer)
 
-
-;; Home and End selects buffer
+;; Easier buffer switching
 (global-set-key [home] 'next-buffer)
 (global-set-key [end]  'bury-buffer)
+
+(global-set-key [C-tab] 'next-buffer)
+(global-set-key [C-S-iso-lefttab] 'bury-buffer)
+
+;; Meta-up/down to do Page Up and Page Down, as the regular Page Up and 
+;; Page down does not repeat, making it tedious to scroll large documents.
+(global-set-key [M-up] 'scroll-down)
+(global-set-key [M-down] 'scroll-up)
 
 ;; Disable Ctrl-Z minimization/suspension of emacs.
 (global-set-key [C-z] nil)
@@ -34,16 +34,9 @@
 (global-set-key [f3] '(lambda () (interactive) (jump-to-register-here ?3)))
 (global-set-key [f4] '(lambda () (interactive) (jump-to-register-here ?4)))
 
-
-;; Meta-up/down to do Page Up and Page Down, as the regular Page Up and 
-;; Page down does not repeat, making it tedious to scroll large documents.
-(global-set-key [M-up] 'scroll-down)
-(global-set-key [M-down] 'scroll-up)
-
 ;; Make changes since the file was opened stand out in red.
 ;; Press F12 to toggle on and off
 ;;(global-set-key [f12] 'highlight-changes-mode)
-
 
 ;; Highlight based on regexps
 (global-set-key [M-f1] 'highlight-regexp)
@@ -81,20 +74,9 @@
 (global-set-key [S-f10] 'find-tag-other-frame)
 (global-set-key [f11] "\C-u\M-.")
 
-(defun toggle-comment-on-line ()
-  "comment or uncomment current line"
-  (interactive)
-  (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
-(defun comment-or-uncomment-region-or-line ()
-    "Comments or uncomments the region or the current line if there's no active region."
-    (interactive)
-    (let (beg end)
-        (if (region-active-p)
-            (setq beg (region-beginning) end (region-end))
-            (setq beg (line-beginning-position) end (line-end-position)))
-        (comment-or-uncomment-region beg end)))
-
+;; toggling comments
 (global-set-key (kbd "M-;") 'comment-or-uncomment-region-or-line)
+(global-set-key (kbd "C-c C-c") 'comment-or-uncomment-region-or-line)
 
 ;; multiple-cursors bindings
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
@@ -105,22 +87,20 @@
 ;; expand-region bindings
 (global-set-key (kbd "C-=") 'er/expand-region)
 
+;; kill whole line
 (global-set-key (kbd "C-S-d") 'kill-whole-line)
 
-(global-set-key (kbd "C-c C-c") 'comment-or-uncomment-region)
-
-;; Easier buffer switching
-(global-set-key [C-tab] 'next-buffer)
-(global-set-key [C-S-iso-lefttab] 'bury-buffer)
+;; copy whole line
+(global-set-key (kbd "C-S-t") 'copy-line)
 
 (global-set-key (quote [f6]) 'word-count)
 ;; (global-set-key (quote [f7]) 'linum-mode)
 
 (global-set-key [(meta return)] 'toggle-fullscreen)
 
-(global-set-key (kbd "C-S-t") 'copy-line)
-
 (global-set-key [f5] 'compile)
+
+(global-set-key (kbd "C-S-e") 'whack-whitespace)
 
 ;; Ctrl-Tab to spellcheck the word under the cursor.
 ;; (global-set-key [C-tab] 'ispell-word)
