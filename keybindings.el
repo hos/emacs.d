@@ -93,13 +93,19 @@
 ;; copy whole line
 (global-set-key (kbd "C-S-t") 'copy-line)
 
-(global-set-key (quote [f6]) 'word-count)
-;; (global-set-key (quote [f7]) 'linum-mode)
+;; join line
+(global-set-key (kbd "C-S-j") 'join-line)
 
+;; word count
+(global-set-key (quote [f6]) 'word-count)
+
+;; fullscreen
 (global-set-key [(meta return)] 'toggle-fullscreen)
 
+;; compilation
 (global-set-key [f5] 'compile)
 
+;; kill whitespace 
 (global-set-key (kbd "C-S-e") 'whack-whitespace)
 
 ;; Ctrl-Tab to spellcheck the word under the cursor.

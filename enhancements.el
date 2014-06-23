@@ -21,16 +21,22 @@
   (beginning-of-line (or (and arg (1+ arg)) 2))
   (if (and arg (not (= 1 arg))) (message "%d lines copied" arg)))
 
-(defun whack-whitespace (arg)
-  "Delete all white space from point to the next word.  With prefix ARG
-    delete across newlines as well.  The only danger in this is that you
-    don't have to actually be at the end of a word to make it work.  It
-    skips over to the next whitespace and then whacks it all to the next
-    word."
+(defun whack-whitespace ()
   (interactive "P")
-  (let ((regexp (if arg "[ \t\n]+" "[ \t]+")))
+  (let ((regexp "[ \t\n]+"))
     (re-search-forward regexp nil t)
     (replace-match "" nil nil)))
+
+;; (defun whack-whitespace (arg)
+;;  "Delete all white space from point to the next word.  With prefix ARG
+;;    delete across newlines as well.  The only danger in this is that you
+;;    don't have to actually be at the end of a word to make it work.  It
+;;    skips over to the next whitespace and then whacks it all to the next
+;;    word."
+;;   (interactive "P")
+;;   (let ((regexp (if arg "[ \t\n]+" "[ \t]+")))
+;;     (re-search-forward regexp nil t)
+;;     (replace-match "" nil nil)))
 
 ;; Move to match if on (){}[] when pressing %, otherwise insert %.
 (defun match-paren (arg)
