@@ -8,6 +8,17 @@ doubt my sanity. Don't worry, it's just a hobby.
 The configuration itself is supposed to be self documenting. Looking into
 `keybindings.el` and `enhancements.el` will reveal my text editing habits. 
 
+#### Downloading and Installation
+
+    git clone --recursive https://github.com/nrs/emacs.d
+    mv emacs.d ~/.emacs.d
+
+*Of course, be careful not to clobber your own config.*
+
+##### Updating
+
+    git pull --recurse-submodules
+
 #### How I rediscovered emacs
 
 I used emacs for two years immediately after I started programming, quite

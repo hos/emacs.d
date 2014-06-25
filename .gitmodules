@@ -19,3 +19,24 @@
 [submodule "site-lisp/evil"]
 	path = site-lisp/evil
 	url = https://github.com/emacsmirror/evil
+[submodule "site-lisp/grizzl"]
+	path = site-lisp/grizzl
+	url = https://github.com/d11wtq/grizzl
+[submodule "site-lisp/fiplr"]
+	path = site-lisp/fiplr
+	url = https://github.com/d11wtq/fiplr
+[submodule "site-lisp/projectile"]
+	path = site-lisp/projectile
+	url = https://github.com/bbatsov/projectile
+[submodule "site-lisp/s.el"]
+	path = site-lisp/s
+	url = https://github.com/magnars/s.el
+[submodule "site-lisp/dash"]
+	path = site-lisp/dash
+	url = https://github.com/magnars/dash.el
+[submodule "site-lisp/pkg-info"]
+	path = site-lisp/pkg-info
+	url = https://github.com/lunaryorn/pkg-info.el
+[submodule "site-lisp/epl"]
+	path = site-lisp/epl
+	url = https://github.com/cask/epl

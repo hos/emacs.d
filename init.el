@@ -171,10 +171,15 @@
 (require 'undo-tree)
 (require 'auto-complete)
 (require 'evil)
+(require 'fiplr)
 
 ;; site-lisp package options
 (yas-global-mode 1)
 (global-undo-tree-mode)
+
+(defun nolinum () (global-linum-mode 0))
+
+(add-hook 'org-mode-hook 'nolinum)
 
 ;; load keybindings
 (require 'keybindings)

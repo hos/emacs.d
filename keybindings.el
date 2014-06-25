@@ -93,8 +93,8 @@
 ;; copy whole line
 (global-set-key (kbd "C-S-t") 'copy-line)
 
-;; join line
-(global-set-key (kbd "C-S-j") 'join-line)
+;; join line - it seems M-^ is already bound to this 
+;; (global-set-key (kbd "C-S-j") 'join-line)
 
 ;; word count
 (global-set-key (quote [f6]) 'word-count)
@@ -107,6 +107,9 @@
 
 ;; kill whitespace 
 (global-set-key (kbd "C-S-e") 'whack-whitespace)
+
+;; fiplr fuzzy find file
+(global-set-key (kbd "C-S-p") 'fiplr-find-file)
 
 ;; Ctrl-Tab to spellcheck the word under the cursor.
 ;; (global-set-key [C-tab] 'ispell-word)
