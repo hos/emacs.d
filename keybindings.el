@@ -78,15 +78,6 @@
 (global-set-key (kbd "M-;") 'comment-or-uncomment-region-or-line)
 (global-set-key (kbd "C-c C-c") 'comment-or-uncomment-region-or-line)
 
-;; multiple-cursors bindings
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-
-;; expand-region bindings
-(global-set-key (kbd "C-=") 'er/expand-region)
-
 ;; kill whole line
 (global-set-key (kbd "C-S-d") 'kill-whole-line)
 
@@ -111,11 +102,7 @@
 ;; kill whitespace 
 (global-set-key (kbd "C-S-e") 'whack-whitespace)
 
-;; fiplr fuzzy find file
-(global-set-key (kbd "C-S-p") 'fiplr-find-file)
-
 ;; Ctrl-Tab to spellcheck the word under the cursor.
 ;; (global-set-key [C-tab] 'ispell-word)
-(define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
 
 (provide 'keybindings)
