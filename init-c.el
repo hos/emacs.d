@@ -24,4 +24,4 @@
 ;;                   tab-width 2
 ;;                   indent-tabs-mode t)
 
-(provide 'setup-c)
+(provide 'init-c)

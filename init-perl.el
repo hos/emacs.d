@@ -4,4 +4,4 @@
 (add-to-list 'interpreter-mode-alist '("perl5" . cperl-mode))
 (add-to-list 'interpreter-mode-alist '("miniperl" . cperl-mode))
 
-(provide 'setup-perl)
+(provide 'init-perl)

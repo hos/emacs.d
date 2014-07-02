@@ -3,4 +3,4 @@
 
 (setq python-python-command "/usr/bin/python2")
 
-(provide 'setup-python)
+(provide 'init-python)

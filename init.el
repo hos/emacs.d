@@ -19,12 +19,15 @@
 (require 'appearance)
 (require 'sane-defaults)
 (require 'enhancements)
+(require 'magit)
 
 ;; Language defaults
-(require 'setup-c)
-(require 'setup-perl)
-(require 'setup-python)
-(require 'setup-latex)
+(require 'init-c)
+(require 'init-perl)
+(require 'init-python)
+(require 'init-latex)
+
+(require 'init-org-mode)
 
 ;; Get ()-matching
 ;; (require 'paren)
@@ -111,12 +114,20 @@
  '(line-number-mode 1)
  '(load-home-init-file t t)
  '(menu-bar-mode nil)
+ '(org-modules (quote (org-bbdb org-bibtex org-docview org-gnus org-info org-jsinfo org-irc org-mew org-mhe org-rmail org-special-blocks org-vm org-wl org-w3m org-drill)))
  '(scroll-bar-mode (quote right))
  '(scroll-bar-position (quote left))
  '(show-paren-mode t)
  '(text-mode-hook (quote (turn-on-auto-fill (lambda nil (local-set-key (kbd "") (quote indent-or-complete))) flyspell-mode text-mode-hook-identify)))
  '(tool-bar-mode nil)
  '(tool-bar-style (quote image)))
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
 
 ;; Compilation command
 (setq compilation-scroll-output 1)
@@ -172,9 +183,13 @@
 (require 'auto-complete)
 (require 'evil)
 (require 'fiplr)
+(require 'projectile)
 
 ;; site-lisp package options
+(setq yas/root-directory "~/.emacs.d/site-lisp/yasnippet/snippets/")
 (yas-global-mode 1)
+;; (yas/load-directory yas/root-directory)
+
 (global-undo-tree-mode)
 
 (defun nolinum () (global-linum-mode 0))
@@ -183,3 +198,6 @@
 
 ;; load keybindings
 (require 'keybindings)
+
+;; activate evil-mode because some men just want to watch the world burn
+;; (evil-mode)

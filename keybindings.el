@@ -22,17 +22,17 @@
 
 ;; Enable position saving through shortcuts.
 ;; Save current position with  Ctrl-F1 Ctrl-F2 Ctrl-F3 and Ctrl-F4
-(global-set-key [C-f1] '(lambda () (interactive) (point-to-register ?1)))
-(global-set-key [C-f2] '(lambda () (interactive) (point-to-register ?2)))
-(global-set-key [C-f3] '(lambda () (interactive) (point-to-register ?3)))
-(global-set-key [C-f4] '(lambda () (interactive) (point-to-register ?4)))
+;; (global-set-key [C-f1] '(lambda () (interactive) (point-to-register ?1)))
+;; (global-set-key [C-f2] '(lambda () (interactive) (point-to-register ?2)))
+;; (global-set-key [C-f3] '(lambda () (interactive) (point-to-register ?3)))
+;; (global-set-key [C-f4] '(lambda () (interactive) (point-to-register ?4)))
 
 
 ;; Move to saved position with F1 F2 F3 and F4
-(global-set-key [f1] '(lambda () (interactive) (jump-to-register-here ?1)))
-(global-set-key [f2] '(lambda () (interactive) (jump-to-register-here ?2)))
-(global-set-key [f3] '(lambda () (interactive) (jump-to-register-here ?3)))
-(global-set-key [f4] '(lambda () (interactive) (jump-to-register-here ?4)))
+;; (global-set-key [f1] '(lambda () (interactive) (jump-to-register-here ?1)))
+;; (global-set-key [f2] '(lambda () (interactive) (jump-to-register-here ?2)))
+;; (global-set-key [f3] '(lambda () (interactive) (jump-to-register-here ?3)))
+;; (global-set-key [f4] '(lambda () (interactive) (jump-to-register-here ?4)))
 
 ;; Make changes since the file was opened stand out in red.
 ;; Press F12 to toggle on and off
@@ -104,6 +104,9 @@
 
 ;; compilation
 (global-set-key [f5] 'compile)
+
+;; that dirty habit
+(global-set-key [f2] 'save-buffer)
 
 ;; kill whitespace 
 (global-set-key (kbd "C-S-e") 'whack-whitespace)

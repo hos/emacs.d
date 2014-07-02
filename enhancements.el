@@ -21,7 +21,7 @@
   (beginning-of-line (or (and arg (1+ arg)) 2))
   (if (and arg (not (= 1 arg))) (message "%d lines copied" arg)))
 
-(defun whack-whitespace ()
+(defun whack-whitespace (arg)
   (interactive "P")
   (let ((regexp "[ \t\n]+"))
     (re-search-forward regexp nil t)

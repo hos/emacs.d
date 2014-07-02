@@ -18,4 +18,4 @@
 ;;(fset 'mark-lstinline "\C-[b\\lstinline|\C-[f|")
 ;;(add-hook 'latex-mode-hook (lambda () (local-set-key (kbd "C-c m") 'mark-lstinline)))
 
-(provide 'setup-latex)
+(provide 'init-latex)
