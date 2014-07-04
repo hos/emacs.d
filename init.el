@@ -42,9 +42,9 @@
                
         (:name multiple-cursors
                :after (progn (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-                              (global-set-key (kbd "C->") 'mc/mark-next-like-this)
-                              (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-                              (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)))
+                             (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+                             (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+                             (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)))
         
         (:name expand-region
                :after (global-set-key (kbd "C-=") 'er/expand-region))
@@ -53,7 +53,7 @@
 	       :after (global-undo-tree-mode 1))))
 
 ;; my packages
-(setq dim-packages
+(setq nrs-packages
       (append
        ;; list of packages we use straight from official recipes
        '(magit
@@ -69,7 +69,7 @@
        
        (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))))
 
-(el-get 'sync dim-packages)
+(el-get 'sync nrs-packages)
 
 ;; Local units
 (require 'appearance)
@@ -84,6 +84,9 @@
 (require 'init-latex)
 
 (require 'init-org-mode)
+
+;; Site-lisp packages
+(require 'turkish-mode)
 
 (defun jump-to-register-other (reg)
   (other-window 1)
