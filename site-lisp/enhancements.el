@@ -92,5 +92,10 @@
   (interactive)
   (switch-to-buffer (nth (- (length (buffer-list)) 1) (buffer-list))))
 
+;; Toggle fullscreen
+
+(defun toggle-fullscreen ()
+  (interactive)
+  (set-frame-parameter nil 'fullscreen (if (frame-parameter nil 'fullscreen) nil 'fullboth)))
 
 (provide 'enhancements)

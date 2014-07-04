@@ -18,7 +18,7 @@
 (global-set-key [M-down] 'scroll-up)
 
 ;; Disable Ctrl-Z minimization/suspension of emacs.
-(global-set-key [C-z] nil)
+(global-set-key (kbd "C-z") nil)
 
 ;; Enable position saving through shortcuts.
 ;; Save current position with  Ctrl-F1 Ctrl-F2 Ctrl-F3 and Ctrl-F4
