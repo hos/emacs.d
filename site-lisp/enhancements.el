@@ -98,4 +98,27 @@
   (interactive)
   (set-frame-parameter nil 'fullscreen (if (frame-parameter nil 'fullscreen) nil 'fullboth)))
 
+;; Move line functions -- from @skeeto
+(defun move-line (n)
+  "Move the current line up or down by N lines."
+  (interactive "p")
+  (let* ((column (current-column))
+         (start (progn (beginning-of-line) (point)))
+         (end (progn (end-of-line) (forward-char) (point)))
+         (line-text (delete-and-extract-region start end)))
+    (forward-line n)
+    (insert line-text)
+    (forward-line -1)
+    (forward-char column)))
+
+(defun move-line-up (n)
+  "Move the current line up by N lines."
+  (interactive "p")
+  (move-line (if (null n) -1 (- n))))
+
+(defun move-line-down (n)
+  "Move the current line down by N lines."
+  (interactive "p")
+  (move-line (if (null n) 1 n)))
+
 (provide 'enhancements)

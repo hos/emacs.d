@@ -1,6 +1,6 @@
 
 ;;Active AucTEX by putting this (autocompletion emacs)
-(load "auctex.el" nil t t)
+;; (load "auctex.el" nil t t)
 
 (defun my-run-latex ()
   (interactive)

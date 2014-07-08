@@ -27,10 +27,10 @@
 ;; Include the latex-exporter
 (require 'ox-latex)
 ;; Add minted to the defaults packages to include when exporting.
-(add-to-list 'org-latex-packages-alist '("" "minted"))
+;; (add-to-list 'org-latex-packages-alist '("" "minted"))
 ;; Tell the latex export to use the minted package for source
 ;; code coloration.
-(setq org-latex-listings 'minted)
+;; (setq org-latex-listings 'minted)
 
 ;; fontify
 (setq org-src-fontify-natively t)
@@ -38,10 +38,13 @@
 ;; Shift-arrow bindings on timestamps don't work for some reason, workaround
 (setq org-time-stamp-rounding-minutes '(0 1))
 (add-hook 'org-mode-hook
-  '(lambda ()
-     (local-set-key (kbd "S-<up>") 'org-timestamp-up)
-     (local-set-key (kbd "S-<down>") 'org-timestamp-down)
-     (local-set-key (kbd "S-<left>") 'org-timestamp-up-day)
-     (local-set-key (kbd "S-<right>") 'org-timestamp-down-day)))
+          '(lambda ()
+             (local-set-key (kbd "S-<up>") 'org-timestamp-up)
+             (local-set-key (kbd "S-<down>") 'org-timestamp-down)
+             (local-set-key (kbd "S-<left>") 'org-timestamp-up-day)
+             (local-set-key (kbd "S-<right>") 'org-timestamp-down-day)))
+
+;; disable linum-mode in org-mode, due to slowing down
+(add-hook 'org-mode-hook '(lambda () (linum-mode 0)))
 
 (provide 'init-org-mode)

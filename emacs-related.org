@@ -1,0 +1,13 @@
+* emacs-related.org
+
+This is a collection of emacs related trivia which I find amusing.
+
+- Recall the Emacsen-Besserit litany again vim:
+  "I must not vim. Vim is the mind killer. Vim is the little death that brings total obliteration. I will permit it to pass over me and through me. And when it has gone past I will turn the inner dired mode to see its $PATH. Where the vim has gone there will be nothing. Only emacs will remain."
+- "Emacs outshines all other editing software in approximately the same way that the noonday sun does the stars. It is not just bigger and brighter; it simply makes everything else vanish." -Neal Stephenson, "In the Beginning was the Command Line"
+- "Show me your ~/.emacs and I will tell you who you are." -Bogdan Maryniuk
+- "Emacs is like a laser guided missile. It only has to be slightly mis-configured to ruin your whole day." -Sean McGrathi
+- "While any text editor can save your files, only Emacs can save your soul." -Per Abrahamseni
+- "Lisp isn't a language, it's a building material." - Alan Kay
+- "The reasonable man adapts himself to Emacs; the unreasonable one persists in trying to adapt Emacs to himself. Therefore all progress depends on the unreasonable man." - G.B. Shaw
+- "Compared to Emacs Wizards, graphical-IDE users are the equivalent of amateur musicians, pawing at their instrument with a sort of desperation. An IDE has blinking lights and pretty dialogs that you can't interact with properly, and gives newbies a nice comfortable sense of control. But that control is extremely crude, and all serious programmers prefer something that gives them more power." - Steve Yegge

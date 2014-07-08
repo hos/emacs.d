@@ -34,7 +34,8 @@
 	(:name yasnippet
 	       :after (yas-global-mode 1))
 
-	;; (:name auto-complete
+	(:name auto-complete
+	       :after (global-auto-complete-mode t))
 	;;        :after (define-key ac-mode-map (kbd "M-TAB") 'auto-complete))
         
         (:name fiplr
@@ -131,6 +132,7 @@
          auto-complete ;; auto complete for emacs
          epresent ;; emacs presentations with org-mode
          helm
+         auctex
          projectile
          undo-tree
          yasnippet ;; snipets
@@ -149,6 +151,7 @@
 (require 'appearance)
 (require 'sane-defaults)
 (require 'enhancements)
+(require 'whitespace-cleanup)
 
 ;; Language defaults
 (require 'init-c)
@@ -237,11 +240,7 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/monokai-theme")
 (load-theme 'monokai t)
 
-(defun nolinum () (global-linum-mode 0))
-
-(add-hook 'org-mode-hook 'nolinum)
-
-;; load keybindings
+;; load keybindings last for love
 (require 'keybindings)
 
 ;; activate evil-mode because some men just want to watch the world burn

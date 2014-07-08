@@ -105,4 +105,8 @@
 ;; Ctrl-Tab to spellcheck the word under the cursor.
 ;; (global-set-key [C-tab] 'ispell-word)
 
+;; Moving lines up & down
+(global-set-key (kbd "M-<up>") 'move-line-up)
+(global-set-key (kbd "M-<down>") 'move-line-down)
+
 (provide 'keybindings)
