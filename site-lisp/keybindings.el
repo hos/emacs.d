@@ -12,7 +12,7 @@
 (global-set-key [C-tab] 'next-buffer)
 (global-set-key [C-S-iso-lefttab] 'bury-buffer)
 
-;; Meta-up/down to do Page Up and Page Down, as the regular Page Up and 
+;; Meta-up/down to do Page Up and Page Down, as the regular Page Up and
 ;; Page down does not repeat, making it tedious to scroll large documents.
 (global-set-key [M-up] 'scroll-down)
 (global-set-key [M-down] 'scroll-up)
@@ -69,10 +69,10 @@
 ;; Shift-F10 will open the matches in another frame.
 ;; Then use F9 and F11 to browse back and forth between the matches.
 
-(global-set-key [f9]  'pop-tag-mark)
-(global-set-key [f10] 'find-tag)
-(global-set-key [S-f10] 'find-tag-other-frame)
-(global-set-key [f11] "\C-u\M-.")
+;; (global-set-key [f9]  'pop-tag-mark)
+;; (global-set-key [f10] 'find-tag)
+;; (global-set-key [S-f10] 'find-tag-other-frame)
+;; (global-set-key [f11] "\C-u\M-.")
 
 ;; toggling comments
 (global-set-key (kbd "M-;") 'comment-or-uncomment-region-or-line)
@@ -84,7 +84,7 @@
 ;; copy whole line
 (global-set-key (kbd "C-S-t") 'copy-line)
 
-;; join line - it seems M-^ is already bound to this 
+;; join line - it seems M-^ is already bound to this
 ;; (global-set-key (kbd "C-S-j") 'join-line)
 
 ;; word count
@@ -99,7 +99,7 @@
 ;; that dirty habit
 (global-set-key [f2] 'save-buffer)
 
-;; kill whitespace 
+;; kill whitespace
 (global-set-key (kbd "C-S-e") 'whack-whitespace)
 
 ;; Ctrl-Tab to spellcheck the word under the cursor.
@@ -108,5 +108,9 @@
 ;; Moving lines up & down
 (global-set-key (kbd "M-<up>") 'move-line-up)
 (global-set-key (kbd "M-<down>") 'move-line-down)
+
+(global-set-key (kbd "C-S-o") 'insert-line-before)
+(global-set-key (kbd "C-o") 'insert-line-after)
+(global-set-key (kbd "C-S-M-o") 'open-line)
 
 (provide 'keybindings)

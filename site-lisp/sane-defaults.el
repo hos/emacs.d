@@ -134,4 +134,20 @@
 ;; Make sure that the file ends in a newline.
 (setq require-final-newline t)
 
+;; Change window configuration and then return to the old
+;; configuration with [[http://www.emacswiki.org/emacs/WinnerMode][winner-mode]]. Use =Control-C Arrow= keys to
+;; cycle through window/frame configurations.
+(winner-mode 1)
+
+;; Auto-fill in text mode
+(add-hook 'text-mode-hook
+        '(lambda ()
+            (turn-on-auto-fill)
+            (auto-fill-mode 1)
+            ))
+
+;; Make text-mode the default mode, so that we can use the tab-completion
+;; feature in files that don't have an extension.
+(setq default-major-mode 'text-mode)
+
 (provide 'sane-defaults)

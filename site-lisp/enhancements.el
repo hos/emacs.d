@@ -43,12 +43,12 @@
   "Go to the matching paren if on a paren; otherwise insert %."
   (interactive "p")
   (cond ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
-	((looking-at "\\s\)") (forward-char 1) (backward-list 1))
-	((looking-at "\\s\{") (forward-list 1) (backward-char 1))
-	((looking-at "\\s\}") (forward-char 1) (backward-list 1))
-	((looking-at "\\s[") (forward-list 1) (backward-char 1))
-	((looking-at "\\s]") (forward-char 1) (backward-list 1))
-	(t (self-insert-command (or arg 1)))))
+        ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
+        ((looking-at "\\s\{") (forward-list 1) (backward-char 1))
+        ((looking-at "\\s\}") (forward-char 1) (backward-list 1))
+        ((looking-at "\\s[") (forward-list 1) (backward-char 1))
+        ((looking-at "\\s]") (forward-char 1) (backward-list 1))
+        (t (self-insert-command (or arg 1)))))
 
 (defun toggle-comment-on-line ()
   "comment or uncomment current line"
@@ -86,9 +86,9 @@
       (message (concat "Word Count: " result))
       )))
 
-(defun next-buffer () 
-  "Go to the buffer which is at the end of the buffer-list. 
-   This is the symmetric of burry-buffer." 
+(defun next-buffer ()
+  "Go to the buffer which is at the end of the buffer-list.
+   This is the symmetric of burry-buffer."
   (interactive)
   (switch-to-buffer (nth (- (length (buffer-list)) 1) (buffer-list))))
 
@@ -120,5 +120,19 @@
   "Move the current line down by N lines."
   (interactive "p")
   (move-line (if (null n) 1 n)))
+
+(defun insert-line-before (arg)
+  "Inserts a newline(s) above the line containing the cursor."
+  (interactive "p")
+  (save-excursion
+    (move-beginning-of-line 1)
+    (newline arg)))
+
+(defun insert-line-after (arg)
+  "Inserts a newline(s) below the line containing the cursor."
+  (interactive "p")
+  (save-excursion
+    (move-end-of-line 1)
+    (newline arg)))
 
 (provide 'enhancements)

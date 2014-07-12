@@ -1,3 +1,6 @@
+;; init.el
+;; top level initialization file for emacs
+
 ;; Set path to dependencies
 (setq site-lisp-dir
       (expand-file-name "site-lisp" user-emacs-directory))
@@ -10,12 +13,12 @@
   (setq load-path
         (append
          (let ((load-path (copy-sequence load-path))) ;; Shadow
-           (append 
+           (append
             (copy-sequence (normal-top-level-add-to-load-path '(".")))
             (normal-top-level-add-subdirs-to-load-path)))
          load-path)))
 
-;; el-get 
+;; el-get - smarter package management
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
 (unless (require 'el-get nil 'noerror)
@@ -31,16 +34,16 @@
 (setq el-get-sources
       '((:name el-get :branch "master")
 
-	(:name yasnippet
-	       :after (yas-global-mode 1))
+        (:name yasnippet
+               :after (yas-global-mode 1))
 
-	(:name auto-complete
-	       :after (global-auto-complete-mode t))
-	;;        :after (define-key ac-mode-map (kbd "M-TAB") 'auto-complete))
-        
+        (:name auto-complete
+               :after (global-auto-complete-mode t))
+        ;;        :after (define-key ac-mode-map (kbd "M-TAB") 'auto-complete))
+
         (:name fiplr
                :after (global-set-key (kbd "C-S-p") 'fiplr-find-file))
-               
+
         (:name multiple-cursors
                :after (progn (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
                              (global-set-key (kbd "C->") 'mc/mark-next-like-this)
@@ -48,7 +51,7 @@
                              (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)))
 
         (:name helm
-               :after (progn  
+               :after (progn
                         (require 'helm)
                         (require 'helm-config)
                         (require 'helm-eshell)
@@ -108,7 +111,7 @@
                         (add-hook 'eshell-mode-hook
                                   #'(lambda ()
                                       (define-key eshell-mode-map (kbd "M-l")  'helm-eshell-history)))
-                        
+
                         ;; Save current position to mark ring
                         (add-hook 'helm-goto-line-before-hook 'helm-save-current-pos-to-mark-ring)
 
@@ -120,29 +123,29 @@
         (:name expand-region
                :after (global-set-key (kbd "C-=") 'er/expand-region))
 
-	(:name undo-tree
-	       :after (global-undo-tree-mode 1))))
+        (:name undo-tree
+               :after (global-undo-tree-mode 1))))
 
 ;; my packages
 (setq nrs-packages
       (append
        ;; list of packages we use straight from official recipes
-       '(magit
+       '(magit ;; better git support
          git-timemachine ;; switch through different versions of file
          auto-complete ;; auto complete for emacs
          epresent ;; emacs presentations with org-mode
-         helm
-         auctex
-         projectile
-         undo-tree
+         helm ;; incremental completion and selection narrowing framework
+         auctex ;; most sophisticated TeX and LaTeX package for emacs
+         projectile ;; manage projects easier
+         undo-tree ;; sane undoing
          yasnippet ;; snipets
-         expand-region
+         expand-region ;; context sensitive scoping
          nyan-mode ;; show nyan cat status bar
          evil ;; vi emulation
          fiplr ;; fuzzy file search
-         org-mode
-         multiple-cursors)
-       
+         org-mode ;; organize the universe
+         multiple-cursors) ;; i can't even talk
+
        (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))))
 
 (el-get 'sync nrs-packages)
@@ -158,7 +161,6 @@
 (require 'init-perl)
 (require 'init-python)
 (require 'init-latex)
-
 (require 'init-org-mode)
 
 ;; Site-lisp packages
@@ -174,33 +176,6 @@
   (jump-to-register reg)
 ;;  (hilit-recenter (/ (window-height) 2))
 )
-
-;;(add-hook 'c-mode-common-hook   'highlight-changes-mode)    ; in C-mode
-;;(add-hook 'emacs-lisp-mode-hook 'highlight-changes-mode)    ; in Lisp-mode
-;;(add-hook 'text-mode-hook       'highlight-changes-mode)    ; in Text-mode
-
-;; Auto-fill in text mode
-;;(add-hook 'text-mode-hook
-;;         '(lambda ()
-;;             (turn-on-auto-fill)
-;;             (auto-fill-mode 1)
-;;             ))
-
-;; Make text-mode the default mode, so that we can use the tab-completion
-;; feature in files that don't have an extension.
-;; (setq default-major-mode 'text-mode)
-
-;; Spelling
-;; Do running spell check in text mode.
-;;(setq ispell-program-name "/usr/bin/aspell")
-;; (add-hook 'text-mode-hook  'flyspell-mode)
-
-;; Set the dictionary for the spell check.
-;;flamf(setq flyspell-mode-hook
-;;      '(lambda () "Sets the dictionary for flyspell on startup."
-;;	 (ispell-change-dictionary "svenska")
-;;))
-
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -227,13 +202,9 @@
  )
 
 ;; Compilation command
-(setq compilation-scroll-output 1)
+;; (setq compilation-scroll-output 1)
 
-(setq exec-path (append exec-path '("/usr/bin")))
-
-;; (autoload 'php-mode "php-mode" "Major mode for editing php code." t)
-;; (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
-;; (add-to-list 'auto-mode-alist '("\\.inc$" . php-mode))
+;; (setq exec-path (append exec-path '("/usr/bin")))
 
 ;; Themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")

@@ -1,3 +1,6 @@
+;; init-org-mode.el
+;; General settings to be shared in all org sessions
+
 (setq dotfiles-dir (file-name-directory (or load-file-name (buffer-file-name))))
 (add-to-list 'load-path (expand-file-name
                          "lisp" (expand-file-name
@@ -8,9 +11,22 @@
 (require 'ob-tangle)
 (require 'org-element)
 
-
 (org-babel-do-load-languages
-    'org-babel-load-languages '((python . t) (R . t)))
+ 'org-babel-load-languages
+ '(
+   (sh . t)
+   (python . t)
+   (R . t)
+   (ruby . t)
+   (dot . t)
+   (octave . t)
+   (perl . t)
+   (screen . t)
+   ;; (ditaa . t)
+   ;; (sqlite . t)
+   ;; (plantuml . t)
+   ;; (lilypond . t)
+   ))
 
 ;; (defun my-org-confirm-babel-evaluate (lang body)
 ;;   (not (string= lang "python")))  ; don't ask for python
