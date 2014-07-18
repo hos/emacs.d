@@ -101,6 +101,7 @@
                         (global-set-key (kbd "C-c h s") 'helm-semantic-or-imenu)
                         (global-set-key (kbd "C-c h m") 'helm-man-woman)
                         (global-set-key (kbd "C-c h f") 'helm-find)
+                        (global-set-key (kbd "C-c h g") 'helm-do-grep)
                         (global-set-key (kbd "C-c h l") 'helm-locate)
                         (global-set-key (kbd "C-c h o") 'helm-occur)
                         (global-set-key (kbd "C-c h r") 'helm-resume)
@@ -117,14 +118,27 @@
 
                         (helm-mode 1)))
 
+        ;; (:name auctex
+        ;;        :after (setq texmathp-tex-commands (quote (("\\eqn"  arg-on)))))
+
         (:name nyan-mode
                :after (nyan-mode))
 
         (:name expand-region
                :after (global-set-key (kbd "C-=") 'er/expand-region))
 
+        (:name rainbow-delimiters
+               :after (progn
+                        (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)))
+
+        (:name emmet-mode
+               :after (progn
+                        (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+                        (add-hook 'css-mode-hook  'emmet-mode))) ;; enable Emmet's css abbreviation.
+
         (:name undo-tree
                :after (global-undo-tree-mode 1))))
+
 
 ;; my packages
 (setq nrs-packages
@@ -144,6 +158,9 @@
          evil ;; vi emulation
          fiplr ;; fuzzy file search
          org-mode ;; organize the universe
+         slime ;; superior lisp interaction mode for emacs
+         rainbow-delimiters ;; pretty colors for those scopes
+         emmet-mode ;; zen coding
          multiple-cursors) ;; i can't even talk
 
        (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))))
@@ -182,6 +199,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ ;; '(texmathp-tex-commands (quote (("IEEEeqnarray" env-on) ("IEEEeqnarray*" env-on))))
  '(column-number-mode t)
  '(font-use-system-font t)
  '(line-number-mode 1)

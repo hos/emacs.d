@@ -110,7 +110,7 @@
 (global-set-key (kbd "M-<down>") 'move-line-down)
 
 (global-set-key (kbd "C-S-o") 'insert-line-before)
-(global-set-key (kbd "C-o") 'insert-line-after)
-(global-set-key (kbd "C-S-M-o") 'open-line)
+(global-set-key (kbd "C-c C-o") 'insert-line-after)
+;; (global-set-key (kbd "C-S-M-o") 'open-line)
 
 (provide 'keybindings)
