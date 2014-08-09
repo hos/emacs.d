@@ -53,10 +53,17 @@
         (:name helm
                :after (progn
                         (require 'helm)
+
+                        ;; must set before helm-config,  otherwise helm use default
+                        ;; prefix "C-x c", which is inconvenient because you can
+                        ;; accidentially pressed "C-x C-c"
+                        (setq helm-command-prefix-key "C-c h")
+
                         (require 'helm-config)
                         (require 'helm-eshell)
                         (require 'helm-files)
                         (require 'helm-grep)
+
 
                         (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to do persistent action
                         (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
@@ -90,23 +97,23 @@
                                         ; useful in helm-mini that lists buffers
                          )
 
-                        (define-key helm-map (kbd "C-x 2") 'helm-select-2nd-action)
-                        (define-key helm-map (kbd "C-x 3") 'helm-select-3rd-action)
-                        (define-key helm-map (kbd "C-x 4") 'helm-select-4rd-action)
+                        ;; (define-key helm-map (kbd "C-x 2") 'helm-select-2nd-action)
+                        ;; (define-key helm-map (kbd "C-x 3") 'helm-select-3rd-action)
+                        ;; (define-key helm-map (kbd "C-x 4") 'helm-select-4rd-action)
 
-                        (global-set-key (kbd "M-x") 'helm-M-x)
-                        (global-set-key (kbd "M-y") 'helm-show-kill-ring)
-                        (global-set-key (kbd "C-x b") 'helm-mini)
-                        (global-set-key (kbd "C-x C-f") 'helm-find-files)
-                        (global-set-key (kbd "C-c h s") 'helm-semantic-or-imenu)
-                        (global-set-key (kbd "C-c h m") 'helm-man-woman)
-                        (global-set-key (kbd "C-c h f") 'helm-find)
+                        ;; (global-set-key (kbd "M-x") 'helm-M-x)
+                        ;; (global-set-key (kbd "M-y") 'helm-show-kill-ring)
+                        ;; (global-set-key (kbd "C-x b") 'helm-mini)
+                        ;; (global-set-key (kbd "C-x C-f") 'helm-find-files)
+                        ;; (global-set-key (kbd "C-c h s") 'helm-semantic-or-imenu)
+                        ;; (global-set-key (kbd "C-c h m") 'helm-man-woman)
+                        ;; (global-set-key (kbd "C-c h f") 'helm-find)
                         (global-set-key (kbd "C-c h g") 'helm-do-grep)
-                        (global-set-key (kbd "C-c h l") 'helm-locate)
-                        (global-set-key (kbd "C-c h o") 'helm-occur)
-                        (global-set-key (kbd "C-c h r") 'helm-resume)
-                        (define-key 'help-command (kbd "C-f") 'helm-apropos)
-                        (define-key 'help-command (kbd "r") 'helm-info-emacs)
+                        ;; (global-set-key (kbd "C-c h l") 'helm-locate)
+                        ;; (global-set-key (kbd "C-c h o") 'helm-occur)
+                        ;; (global-set-key (kbd "C-c h r") 'helm-resume)
+                        ;; (define-key 'help-command (kbd "C-f") 'helm-apropos)
+                        ;; (define-key 'help-command (kbd "r") 'helm-info-emacs)
 
                         ;; use helm to list eshell history
                         (add-hook 'eshell-mode-hook
@@ -147,7 +154,7 @@
        '(magit ;; better git support
          git-timemachine ;; switch through different versions of file
          auto-complete ;; auto complete for emacs
-         epresent ;; emacs presentations with org-mode
+         ;; epresent ;; emacs presentations with org-mode
          helm ;; incremental completion and selection narrowing framework
          auctex ;; most sophisticated TeX and LaTeX package for emacs
          projectile ;; manage projects easier
@@ -161,6 +168,7 @@
          slime ;; superior lisp interaction mode for emacs
          rainbow-delimiters ;; pretty colors for those scopes
          emmet-mode ;; zen coding
+         markdown-mode ;; yep
          multiple-cursors) ;; i can't even talk
 
        (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))))
@@ -182,17 +190,6 @@
 
 ;; Site-lisp packages
 (require 'turkish-mode)
-
-(defun jump-to-register-other (reg)
-  (other-window 1)
-  (jump-to-register reg)
-;;  (hilit-recenter (/ (window-height) 2))
-)
-
-(defun jump-to-register-here (reg)
-  (jump-to-register reg)
-;;  (hilit-recenter (/ (window-height) 2))
-)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -218,11 +215,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-;; Compilation command
-;; (setq compilation-scroll-output 1)
-
-;; (setq exec-path (append exec-path '("/usr/bin")))
 
 ;; Themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")

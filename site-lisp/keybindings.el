@@ -113,4 +113,6 @@
 (global-set-key (kbd "C-c C-o") 'insert-line-after)
 ;; (global-set-key (kbd "C-S-M-o") 'open-line)
 
+(global-set-key (kbd "M-p") 'toggle-letter-case)
+
 (provide 'keybindings)
