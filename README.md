@@ -1,4 +1,4 @@
-# nrs's emacs configuration
+# @nrs' emacs configuration
 
 This is my everchanging emacs configuration. I come by to this repository
 every now and then for micro optimizations that will make you
