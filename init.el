@@ -131,6 +131,13 @@
         (:name nyan-mode
                :after (nyan-mode))
 
+        (:name iy-go-to-char
+               :after (progn
+                        (global-set-key (kbd "C-c f") 'iy-go-to-char)
+                        (global-set-key (kbd "C-c F") 'iy-go-to-char-backward)
+                        (global-set-key (kbd "C-c ;") 'iy-go-to-or-up-to-continue)
+                        (global-set-key (kbd "C-c ,") 'iy-go-to-or-up-to-continue-backward)))
+
         (:name expand-region
                :after (global-set-key (kbd "C-=") 'er/expand-region))
 
@@ -169,6 +176,7 @@
          rainbow-delimiters ;; pretty colors for those scopes
          emmet-mode ;; zen coding
          markdown-mode ;; yep
+         iy-go-to-char ;; jump to next occurrence of char
          multiple-cursors) ;; i can't even talk
 
        (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))))
@@ -180,7 +188,6 @@
 (require 'sane-defaults)
 (require 'enhancements)
 (require 'whitespace-cleanup)
-(require 'iy-go-to-char)
 
 ;; Language defaults
 (require 'init-c)
