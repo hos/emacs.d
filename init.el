@@ -50,6 +50,21 @@
                              (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
                              (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)))
 
+        (:name tabbar
+               :after (progn  (global-set-key [M-left] 'tabbar-backward-tab)
+                              (global-set-key [M-right] 'tabbar-forward-tab)))
+
+        ;; (:name column-marker
+        ;;        :after (progn (add-hook 'c-mode-hook (lambda () (interactive) (column-marker-1 80)))
+        ;;                      (add-hook 'c++-mode-hook (lambda () (interactive) (column-marker-1 80)))))
+
+        ;; config examples at: http://www.emacswiki.org/emacs/FillColumnIndicator
+        (:name fill-column-indicator
+               :after (progn (setq-default fci-rule-column 80)
+                             (setq fci-rule-width 1)
+                             (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
+                             (global-fci-mode 1)))
+
         (:name helm
                :after (progn
                         (require 'helm)
@@ -173,6 +188,7 @@
          fiplr ;; fuzzy file search
          org-mode ;; organize the universe
          slime ;; superior lisp interaction mode for emacs
+         aggressive-indent-mode ;; i love me some indentation
          rainbow-delimiters ;; pretty colors for those scopes
          emmet-mode ;; zen coding
          markdown-mode ;; yep
@@ -234,3 +250,4 @@
 
 ;; activate evil-mode because some men just want to watch the world burn
 ;; (evil-mode)
+(put 'upcase-region 'disabled nil)

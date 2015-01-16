@@ -1,6 +1,6 @@
 ;; Show line number
-(setq line-number-mode 1)
-(global-linum-mode t)
+;; (setq line-number-mode 1)
+;; (global-linum-mode t)
 
 ;; Show column number
 (setq column-number-mode 1)
@@ -8,8 +8,8 @@
 ;; Don't show banner on startup
 (setq inhibit-startup-message t)
 
-;; Change the font 
-(set-face-attribute 'default nil 
+;; Change the font
+(set-face-attribute 'default nil
                     :family "DejaVu Sans Mono" :height 110)
                     ;; :family "DejaVu Sans Mono" :height 90)
 ;;(set-face-attribute 'default nil
@@ -28,7 +28,7 @@
    icon-title-format frame-title-format
    ))
 
-;; Title bar shows name of current buffer.  
+;; Title bar shows name of current buffer.
 ;;(setq frame-title-format '("emacs: %*%+ %b"))
 
 (provide 'appearance)

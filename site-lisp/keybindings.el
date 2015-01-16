@@ -96,6 +96,9 @@
 ;; compilation
 (global-set-key [f5] 'compile)
 
+;; run kmacro
+(global-set-key [f7] 'kmacro-call-macro)
+
 ;; that dirty habit
 (global-set-key [f2] 'save-buffer)
 
