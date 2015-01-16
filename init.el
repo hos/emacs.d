@@ -170,7 +170,7 @@
 
 
 ;; my packages
-(setq nrs-packages
+(setq hos-packages
       (append
        ;; list of packages we use straight from official recipes
        '(magit ;; better git support
@@ -197,7 +197,7 @@
 
        (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))))
 
-(el-get 'sync nrs-packages)
+(el-get 'sync hos-packages)
 
 ;; Local units
 (require 'appearance)

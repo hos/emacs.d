@@ -1,4 +1,4 @@
-# @nrs' emacs configuration
+# @hos' emacs configuration
 
 This is my everchanging emacs configuration. I come by to this repository
 every now and then for micro optimizations that will make you
@@ -9,7 +9,7 @@ The configuration itself is supposed to be self documenting. Looking into
 
 #### Downloading and Installation
 
-    git clone --recursive https://github.com/nrs/emacs.d
+    git clone --recursive https://github.com/hos/emacs.d
     mv emacs.d ~/.emacs.d
 
 *Of course, be careful not to clobber your own config.*
@@ -21,7 +21,7 @@ The configuration itself is supposed to be self documenting. Looking into
 #### Package Management
 
 I use `el-get` for package management. The packages I use are listed in
-`init.el` in the `nrs-packages` variable.
+`init.el` in the `hos-packages` variable.
 The package management system I selected allows me
 to be able to install the same configuration on any machine in seconds.
 
