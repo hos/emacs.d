@@ -220,8 +220,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- ;; '(texmathp-tex-commands (quote (("IEEEeqnarray" env-on) ("IEEEeqnarray*" env-on))))
  '(column-number-mode t)
+ '(custom-safe-themes
+   (quote
+    ("c3c0a3702e1d6c0373a0f6a557788dfd49ec9e66e753fb24493579859c8e95ab" "479eba125f9e97a0208b642a99eee1d816fa208fe3a06f73e444504beb0b17f7" "1297a022df4228b81bc0436230f211bad168a117282c20ddcba2db8c6a200743" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "31a01668c84d03862a970c471edbd377b2430868eccf5e8a9aec6831f1a0908d" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" default)))
  '(font-use-system-font t)
  '(line-number-mode 1)
  '(load-home-init-file t t)
@@ -229,7 +231,29 @@
  '(scroll-bar-mode (quote right))
  '(scroll-bar-position (quote left))
  '(show-paren-mode t)
- '(text-mode-hook (quote (turn-on-auto-fill (lambda nil (local-set-key (kbd "") (quote indent-or-complete))) flyspell-mode text-mode-hook-identify)))
+ '(syslog-debug-face
+   (quote
+    ((t :background unspecified :foreground "#A1EFE4" :weight bold))))
+ '(syslog-error-face
+   (quote
+    ((t :background unspecified :foreground "#F92672" :weight bold))))
+ '(syslog-hour-face (quote ((t :background unspecified :foreground "#A6E22E"))))
+ '(syslog-info-face
+   (quote
+    ((t :background unspecified :foreground "#66D9EF" :weight bold))))
+ '(syslog-ip-face (quote ((t :background unspecified :foreground "#E6DB74"))))
+ '(syslog-su-face (quote ((t :background unspecified :foreground "#FD5FF0"))))
+ '(syslog-warn-face
+   (quote
+    ((t :background unspecified :foreground "#FD971F" :weight bold))))
+ '(text-mode-hook
+   (quote
+    (turn-on-auto-fill
+     (lambda nil
+       (local-set-key
+        (kbd "")
+        (quote indent-or-complete)))
+     flyspell-mode text-mode-hook-identify)))
  '(tool-bar-mode nil)
  '(tool-bar-style (quote image)))
 
@@ -239,11 +263,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-;; Themes
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/monokai-theme")
-(load-theme 'monokai t)
 
 ;; load keybindings last for love
 (require 'keybindings)
