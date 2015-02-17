@@ -35,7 +35,7 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/monokai-theme")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/molokai-theme")
-;; (load-theme 'monokai t)
+(load-theme 'monokai t)
 (load-theme 'molokai t)
 
 (provide 'appearance)

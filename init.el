@@ -38,8 +38,35 @@
                :after (yas-global-mode 1))
 
         (:name auto-complete
-               :after (global-auto-complete-mode t))
-        ;;        :after (define-key ac-mode-map (kbd "M-TAB") 'auto-complete))
+               :after (progn
+                        ;; (require 'yasnippet)
+                        ;; (yas-global-mode 1)
+
+                        ;; (ac-config-default)
+                        (global-auto-complete-mode t)
+                        (ac-flyspell-workaround)
+                        ;; (defun auto-complete-mode-maybe ()
+                        ;;   "No maybe for you. Only AC!"
+                        ;;   (auto-complete-mode 1))
+                        ;;
+                        ;; LaTeX configuration
+                        (add-to-list 'ac-modes 'latex-mode)
+                        (require 'ac-math) ; package should be installed first
+                        (defun my-ac-latex-mode () ; add ac-sources for latex
+                          (setq ac-sources
+                                (append '(ac-source-math-unicode
+                                          ac-source-math-latex
+                                          ac-source-latex-commands)
+                                        ac-sources)))
+                        (add-hook 'LaTeX-mode-hook 'my-ac-latex-mode)
+                        (setq ac-math-unicode-in-math-p t)
+                        ;;
+                        (add-to-list 'ac-modes 'org-mode) ; auto-complete for org-mode
+                        ;;
+                        (require 'auto-complete-config)
+                        ;; (define-key ac-menu-map (kbd "M-TAB") 'ac-next)
+                        ;; (define-key ac-menu-map (kbd "<M-backtab>") 'ac-previous)
+                        ))
 
         (:name fiplr
                :after (global-set-key (kbd "C-S-p") 'fiplr-find-file))
@@ -143,6 +170,10 @@
         ;; (:name auctex
         ;;        :after (setq texmathp-tex-commands (quote (("\\eqn"  arg-on)))))
 
+
+        (:name adoc-mode
+               :after (add-to-list 'auto-mode-alist '("\\.asciidoc$" . adoc-mode)))
+
         (:name nyan-mode
                :after (nyan-mode))
 
@@ -176,6 +207,7 @@
        '(magit ;; better git support
          git-timemachine ;; switch through different versions of file
          auto-complete ;; auto complete for emacs
+         ac-math ;; auto-complete math
          ;; epresent ;; emacs presentations with org-mode
          helm ;; incremental completion and selection narrowing framework
          auctex ;; most sophisticated TeX and LaTeX package for emacs
@@ -193,7 +225,9 @@
          emmet-mode ;; zen coding
          markdown-mode ;; yep
          iy-go-to-char ;; jump to next occurrence of char
-         multiple-cursors) ;; i can't even talk
+         asciidoc
+         adoc-mode
+	 multiple-cursors) ;; i can't even talk
 
        (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))))
 
