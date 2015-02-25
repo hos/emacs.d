@@ -1,9 +1,6 @@
-[submodule "themes/monokai-theme"]
-	path = themes/monokai-theme
-	url = https://github.com/nrs/monokai-emacs
 [submodule "site-lisp/turkish-mode"]
 	path = site-lisp/turkish-mode
 	url = https://github.com/nrs/turkish-mode
-[submodule "themes/molokai-theme"]
-	path = themes/molokai-theme
-	url = https://github.com/hbin/molokai-theme
+[submodule "themes/molokai-emacs"]
+	path = themes/molokai-emacs
+	url = https://github.com/hos/molokai-emacs

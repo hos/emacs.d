@@ -166,4 +166,12 @@
       (downcase-region p1 p2) (put this-command 'state "all lower")) )
     ) )
 
+;; Insert desired string to every empty line
+(defun filibuster (str)
+  (interactive "sString: ")
+  (save-excursion
+    (goto-char (point-min))
+    (while (re-search-forward "^$" nil t)
+      (replace-match str))))
+
 (provide 'enhancements)
