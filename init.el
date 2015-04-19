@@ -51,7 +51,7 @@
                         ;;
                         ;; LaTeX configuration
                         (add-to-list 'ac-modes 'latex-mode)
-                        (require 'ac-math) ; package should be installed first
+                        ;; (require 'ac-math) ; package should be installed first
                         (defun my-ac-latex-mode () ; add ac-sources for latex
                           (setq ac-sources
                                 (append '(ac-source-math-unicode
@@ -78,7 +78,9 @@
                              (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)))
 
         (:name tabbar
-               :after (progn  (global-set-key [M-left] 'tabbar-backward-tab)
+               :after (progn  ;;(require 'tabbar)
+                              ;;(tabbar-mode t)
+                              (global-set-key [M-left] 'tabbar-backward-tab)
                               (global-set-key [M-right] 'tabbar-forward-tab)))
 
         ;; (:name column-marker
@@ -184,6 +186,12 @@
                         (global-set-key (kbd "C-c ;") 'iy-go-to-or-up-to-continue)
                         (global-set-key (kbd "C-c ,") 'iy-go-to-or-up-to-continue-backward)))
 
+
+        (:name swiper
+               :after (progn
+                        (global-set-key "\C-r" 'swiper)
+                        (global-set-key "\C-s" 'swiper)))
+
         (:name expand-region
                :after (global-set-key (kbd "C-=") 'er/expand-region))
 
@@ -207,7 +215,7 @@
        '(magit ;; better git support
          git-timemachine ;; switch through different versions of file
          auto-complete ;; auto complete for emacs
-         ac-math ;; auto-complete math
+         ;; ac-math ;; auto-complete math
          ;; epresent ;; emacs presentations with org-mode
          helm ;; incremental completion and selection narrowing framework
          auctex ;; most sophisticated TeX and LaTeX package for emacs
@@ -216,7 +224,7 @@
          yasnippet ;; snipets
          expand-region ;; context sensitive scoping
          nyan-mode ;; show nyan cat status bar
-         evil ;; vi emulation
+         ;; evil ;; vi emulation
          fiplr ;; fuzzy file search
          org-mode ;; organize the universe
          slime ;; superior lisp interaction mode for emacs
@@ -227,7 +235,8 @@
          iy-go-to-char ;; jump to next occurrence of char
          asciidoc
          adoc-mode
-	 multiple-cursors) ;; i can't even talk
+         swiper
+	 multiple-cursors)
 
        (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))))
 
@@ -245,6 +254,7 @@
 (require 'init-python)
 (require 'init-latex)
 (require 'init-org-mode)
+(require 'init-octave)
 
 ;; Site-lisp packages
 (require 'turkish-mode)
@@ -304,3 +314,5 @@
 ;; activate evil-mode because some men just want to watch the world burn
 ;; (evil-mode)
 (put 'upcase-region 'disabled nil)
+
+

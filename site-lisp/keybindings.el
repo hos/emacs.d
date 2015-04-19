@@ -78,6 +78,8 @@
 (global-set-key (kbd "M-;") 'comment-or-uncomment-region-or-line)
 (global-set-key (kbd "C-c C-c") 'comment-or-uncomment-region-or-line)
 
+(global-set-key (kbd "M-W") 'copy-and-comment-region)
+
 ;; kill whole line
 (global-set-key (kbd "C-S-d") 'kill-whole-line)
 

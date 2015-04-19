@@ -64,6 +64,13 @@
             (setq beg (line-beginning-position) end (line-end-position)))
         (comment-or-uncomment-region beg end)))
 
+(defun copy-and-comment-region (beg end &optional arg)
+  "Duplicate the region and comment-out the copied text.
+See `comment-region' for behavior of a prefix arg."
+  (interactive "r\nP")
+  (copy-region-as-kill beg end)
+  (comment-or-uncomment-region-or-line))
+
 (defun word-count (&optional filename)
   "Returns the word count of the current buffer.  If `filename' is not nil, returns the word count of that file."
   (interactive)
