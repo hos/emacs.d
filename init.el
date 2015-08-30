@@ -79,9 +79,9 @@
 
         (:name tabbar
                :after (progn  ;;(require 'tabbar)
-                              ;;(tabbar-mode t)
-                              (global-set-key [M-left] 'tabbar-backward-tab)
-                              (global-set-key [M-right] 'tabbar-forward-tab)))
+                        ;;(tabbar-mode t)
+                        (global-set-key [M-left] 'tabbar-backward-tab)
+                        (global-set-key [M-right] 'tabbar-forward-tab)))
 
         ;; (:name column-marker
         ;;        :after (progn (add-hook 'c-mode-hook (lambda () (interactive) (column-marker-1 80)))
@@ -187,10 +187,10 @@
                         (global-set-key (kbd "C-c ,") 'iy-go-to-or-up-to-continue-backward)))
 
 
-        (:name swiper
-               :after (progn
-                        (global-set-key "\C-r" 'swiper)
-                        (global-set-key "\C-s" 'swiper)))
+        ;; (:name swiper
+        ;;        :after (progn
+        ;;                 (global-set-key "\C-r" 'swiper)
+        ;;                 (global-set-key "\C-s" 'swiper)))
 
         (:name expand-region
                :after (global-set-key (kbd "C-=") 'er/expand-region))
@@ -198,6 +198,10 @@
         (:name rainbow-delimiters
                :after (progn
                         (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)))
+
+        (:name aggressive-indent-mode
+               :after (progn
+                        (add-hook 'emacs-lisp-mode-hook 'aggressive-indent-mode)))
 
         (:name emmet-mode
                :after (progn
@@ -212,20 +216,14 @@
 (setq hos-packages
       (append
        ;; list of packages we use straight from official recipes
-       '(magit ;; better git support
-         git-timemachine ;; switch through different versions of file
+       '(git-timemachine ;; switch through different versions of file
          auto-complete ;; auto complete for emacs
-         ;; ac-math ;; auto-complete math
-         ;; epresent ;; emacs presentations with org-mode
          helm ;; incremental completion and selection narrowing framework
          auctex ;; most sophisticated TeX and LaTeX package for emacs
-         projectile ;; manage projects easier
          undo-tree ;; sane undoing
          yasnippet ;; snipets
          expand-region ;; context sensitive scoping
          nyan-mode ;; show nyan cat status bar
-         ;; evil ;; vi emulation
-         fiplr ;; fuzzy file search
          org-mode ;; organize the universe
          slime ;; superior lisp interaction mode for emacs
          aggressive-indent-mode ;; i love me some indentation
@@ -235,8 +233,16 @@
          iy-go-to-char ;; jump to next occurrence of char
          asciidoc
          adoc-mode
-         swiper
-	 multiple-cursors)
+         solarized-emacs
+         multiple-cursors) ;; multiple cursors
+       ;; swiper
+       ;; magit ;; better git support
+       ;; epresent ;; emacs presentations with org-mode
+       ;; ac-math ;; auto-complete math
+       ;; projectile ;; manage projects easier
+       ;; evil ;; vi emulation
+       ;; fiplr ;; fuzzy file search
+
 
        (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))))
 
@@ -269,6 +275,7 @@
    (quote
     ("c3c0a3702e1d6c0373a0f6a557788dfd49ec9e66e753fb24493579859c8e95ab" "479eba125f9e97a0208b642a99eee1d816fa208fe3a06f73e444504beb0b17f7" "1297a022df4228b81bc0436230f211bad168a117282c20ddcba2db8c6a200743" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "31a01668c84d03862a970c471edbd377b2430868eccf5e8a9aec6831f1a0908d" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" default)))
  '(font-use-system-font t)
+ '(frame-background-mode (quote light))
  '(line-number-mode 1)
  '(load-home-init-file t t)
  '(menu-bar-mode nil)

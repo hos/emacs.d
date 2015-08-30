@@ -1,9 +1,16 @@
+
 ;; Wheel mouse moves up and down 4 lines
 ;; (define-key global-map [mouse-4] (lambda () (interactive) (scroll-down 4)))
 ;; (define-key global-map [mouse-5] (lambda () (interactive) (scroll-up 4)))
 
-(define-key global-map [(control mouse-4)] 'next-buffer)
-(define-key global-map [(control mouse-5)] 'bury-buffer)
+;; (define-key global-map [(control mouse-4)] 'next-buffer)
+;; (define-key global-map [(control mouse-5)] 'bury-buffer)
+
+(global-set-key [control mouse-4] 'bury-buffer)
+(global-set-key [control mouse-5] 'next-buffer)
+
+;; (global-set-key [mouse-4] 'tabbar-backward-tab)
+;; (global-set-key [mouse-5] 'tabbar-forward-tab)
 
 ;; Easier buffer switching
 (global-set-key [home] 'next-buffer)
@@ -90,7 +97,7 @@
 ;; (global-set-key (kbd "C-S-j") 'join-line)
 
 ;; word count
-(global-set-key (quote [f6]) 'word-count)
+(global-set-key [f6] 'word-count)
 
 ;; fullscreen
 (global-set-key [(meta return)] 'toggle-fullscreen)

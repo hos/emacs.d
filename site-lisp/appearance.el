@@ -10,8 +10,9 @@
 
 ;; Change the font
 (set-face-attribute 'default nil
-                    :family "DejaVu Sans Mono" :height 110)
-                    ;; :family "DejaVu Sans Mono" :height 90)
+                    ;; :family "DejaVu Sans Mono" :height 140)
+                    :family "DejaVu Sans Mono" :height 120)
+                    ;; :family "DejaVu Sans Mono" :height 110)
 ;;(set-face-attribute 'default nil
 ;;                    :family "Consolas" :height 100)
 
@@ -35,7 +36,10 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 ;; (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/monokai-theme")
 ;; (load-theme 'monokai t)
+
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/molokai-emacs")
 (load-theme 'molokai t)
+
+;; (load-theme 'solarized-dark)
 
 (provide 'appearance)
