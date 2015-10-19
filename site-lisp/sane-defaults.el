@@ -58,13 +58,6 @@
 ;; Don't highlight matches with jump-char - it's distracting
 (setq jump-char-lazy-highlight-face nil)
 
-;; Always display line and column numbers
-(setq line-number-mode t)
-(setq column-number-mode t)
-
-;; Lines should be 80 characters wide, not 72
-(setq fill-column 80)
-
 ;; Save a list of recent files visited. (open recent file with C-x f)
 (recentf-mode 1)
 (setq recentf-max-saved-items 100) ;; just 20 is too recent
@@ -84,6 +77,7 @@
 
 ;; Easily navigate sillycased words
 (global-subword-mode 1)
+;; (global-superword-mode 1)
 
 ;; Don't break lines for me, please
 (setq-default truncate-lines t)
@@ -97,11 +91,6 @@
 ;; Don't be so stingy on the memory, we have lots now. It's the distant future.
 (setq gc-cons-threshold 20000000)
 
-;; org-mode: Don't ruin S-arrow to switch windows please (use M-+ and M-- instead to toggle)
-(setq org-replace-disputed-keys t)
-
-;; Fontify org-mode code blocks
-(setq org-src-fontify-natively t)
 
 ;; Represent undo-history as an actual tree (visualize with C-x u)
 ;; (setq undo-tree-mode-lighter "")
@@ -110,9 +99,6 @@
 
 ;; Sentences do not need double spaces to end. Period.
 (set-default 'sentence-end-double-space nil)
-
-;; 80 chars is a good width.
-(set-default 'fill-column 80)
 
 ;; Add parts of each file's directory to the buffer name if not unique
 (require 'uniquify)
@@ -144,20 +130,26 @@
 ;; Make sure that the file ends in a newline.
 (setq require-final-newline t)
 
-;; Change window configuration and then return to the old
-;; configuration with [[http://www.emacswiki.org/emacs/WinnerMode][winner-mode]]. Use =Control-C Arrow= keys to
-;; cycle through window/frame configurations.
-(winner-mode 1)
-
 ;; Auto-fill in text mode
 (add-hook 'text-mode-hook
-        '(lambda ()
-            (turn-on-auto-fill)
-            (auto-fill-mode 1)
-            ))
+          '(lambda ()
+             (turn-on-auto-fill)
+             (auto-fill-mode 1)
+             ))
 
 ;; Make text-mode the default mode, so that we can use the tab-completion
 ;; feature in files that don't have an extension.
 (setq default-major-mode 'text-mode)
+
+;; Bind alt key to meta, a workaround for VNC
+(setq x-alt-keysym 'meta)
+
+;; (require 'misc)
+;; (global-set-key [C-left] 'backward-to-word)
+;; (global-set-key [C-right] 'forward-to-word)
+
+;; (require 'evil)
+;; (global-set-key [C-right] 'evil-forward-word-begin)
+;; (global-set-key [C-left] 'evil-backward-word-begin)
 
 (provide 'sane-defaults)

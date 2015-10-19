@@ -51,6 +51,7 @@
                         ;;
                         ;; LaTeX configuration
                         (add-to-list 'ac-modes 'latex-mode)
+                        (add-to-list 'ac-modes 'octave-mode)
                         ;; (require 'ac-math) ; package should be installed first
                         (defun my-ac-latex-mode () ; add ac-sources for latex
                           (setq ac-sources
@@ -90,7 +91,7 @@
         ;; config examples at: http://www.emacswiki.org/emacs/FillColumnIndicator
         (:name fill-column-indicator
                :after (progn (setq-default fci-rule-column 80)
-                             (setq fci-rule-width 1)
+                             (setq fci-rule-width 2)
                              (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
                              (global-fci-mode 1)))
 
@@ -173,8 +174,8 @@
         ;;        :after (setq texmathp-tex-commands (quote (("\\eqn"  arg-on)))))
 
 
-        (:name adoc-mode
-               :after (add-to-list 'auto-mode-alist '("\\.asciidoc$" . adoc-mode)))
+        ;; (:name adoc-mode
+        ;;        :after (add-to-list 'auto-mode-alist '("\\.asciidoc$" . adoc-mode)))
 
         (:name nyan-mode
                :after (nyan-mode))
@@ -232,7 +233,7 @@
          markdown-mode ;; yep
          iy-go-to-char ;; jump to next occurrence of char
          asciidoc
-         adoc-mode
+         ;; adoc-mode
          solarized-emacs
          multiple-cursors) ;; multiple cursors
        ;; swiper

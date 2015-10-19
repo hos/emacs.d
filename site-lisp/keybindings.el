@@ -1,4 +1,3 @@
-
 ;; Wheel mouse moves up and down 4 lines
 ;; (define-key global-map [mouse-4] (lambda () (interactive) (scroll-down 4)))
 ;; (define-key global-map [mouse-5] (lambda () (interactive) (scroll-up 4)))
@@ -25,7 +24,7 @@
 (global-set-key [M-down] 'scroll-up)
 
 ;; Disable Ctrl-Z minimization/suspension of emacs.
-(global-set-key (kbd "C-z") nil)
+(global-set-key [C-z] nil)
 
 ;; Enable position saving through shortcuts.
 ;; Save current position with  Ctrl-F1 Ctrl-F2 Ctrl-F3 and Ctrl-F4

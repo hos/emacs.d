@@ -63,4 +63,8 @@
 ;; disable linum-mode in org-mode, due to slowing down
 (add-hook 'org-mode-hook '(lambda () (linum-mode 0)))
 
+;; org-mode: Don't ruin S-arrow to switch windows please (use M-+ and M-- instead to toggle)
+;; (setq org-replace-disputed-keys t)
+
+
 (provide 'init-org-mode)

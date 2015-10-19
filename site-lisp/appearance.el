@@ -11,10 +11,13 @@
 ;; Change the font
 (set-face-attribute 'default nil
                     ;; :family "DejaVu Sans Mono" :height 140)
-                    :family "DejaVu Sans Mono" :height 120)
+                    ;; :family "DejaVu Sans Mono" :height 120)
                     ;; :family "DejaVu Sans Mono" :height 110)
-;;(set-face-attribute 'default nil
-;;                    :family "Consolas" :height 100)
+                    ;; :family "Hack" :height 120)
+                    ;; :family "Hack" :height 120)
+                    :family "Consolas" :height 130)
+
+(setq-default line-spacing 1)
 
 ;; (set-cursor-color "white")
 ;; (set-foreground-color "#FDF8FF"); #dbdbdb")
@@ -24,13 +27,18 @@
 (when (boundp 'x-display-name)
   (setq-default
    frame-title-format (concat invocation-name
-         (unless (string= x-display-name ":0.0") (concat "@" system-name))
-         " (%b)")
+                              (unless (string= x-display-name ":0.0") (concat "@" system-name))
+                              " (%b)")
    icon-title-format frame-title-format
    ))
 
 ;; Title bar shows name of current buffer.
 ;;(setq frame-title-format '("emacs: %*%+ %b"))
+
+
+;; Lines should be 80 characters wide, not 72
+(setq-default fill-column 80)
+
 
 ;; Themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
