@@ -1,5 +1,5 @@
 ;; Hungry delete is nice since we use spaces instead of tabs.
-(setq c-hungry-delete-key t) 
+(setq c-hungry-delete-key t)
 ;;(setq-default c-basic-offset 2)
 
 ;; Let emacs insert newlines automatically whenever it can.
@@ -8,7 +8,7 @@
 ;; Set the K&R indentation style when starting C-mode.
 
 (setq c-default-style "k&r"
-          c-basic-offset 2)
+      c-basic-offset 2)
 
 
 ;; (add-hook 'c-mode-hook
@@ -21,7 +21,6 @@
 ;;(setq tab-width 2)
 
 ;; (setq-default c-basic-offset 2
-;;                   tab-width 2
-;;                   indent-tabs-mode t)
+;;               tab-width 2)
 
 (provide 'init-c)

@@ -69,9 +69,6 @@
 ;; Undo/redo window configuration with C-c <left>/<right>
 (winner-mode 1)
 
-;; Never insert tabs
-(set-default 'indent-tabs-mode nil)
-
 ;; Show me empty lines after buffer end
 (set-default 'indicate-empty-lines t)
 

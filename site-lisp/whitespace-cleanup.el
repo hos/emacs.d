@@ -47,7 +47,7 @@
     (whitespace-cleanup)))
 
 (add-hook 'before-save-hook 'whitespace-cleanup-safe)
-(add-hook 'makefile-mode-hook (lambda () (setq indent-tabs-mode t)))
+;; (add-hook 'makefile-mode-hook (lambda () (setq indent-tabs-mode t)))
 
 (provide 'whitespace-cleanup)
 
