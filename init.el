@@ -89,11 +89,12 @@
         ;;                      (add-hook 'c++-mode-hook (lambda () (interactive) (column-marker-1 80)))))
 
         ;; config examples at: http://www.emacswiki.org/emacs/FillColumnIndicator
-        (:name fill-column-indicator
-               :after (progn (setq-default fci-rule-column 80)
-                             (setq fci-rule-width 2)
-                             (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
-                             (global-fci-mode 1)))
+        ;;
+        ;; (:name fill-column-indicator
+        ;;        :after (progn (setq-default fci-rule-column 80)
+        ;;                      (setq fci-rule-width 2)
+        ;;                      (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
+        ;;                      (global-fci-mode 1)))
 
         (:name helm
                :after (progn
@@ -119,6 +120,9 @@
                         (define-key helm-grep-mode-map (kbd "p")  'helm-grep-mode-jump-other-window-backward)
 
                         (setq
+                         helm-mode-fuzzy-match t
+                         helm-completion-in-region-fuzzy-match t
+
                          helm-google-suggest-use-curl-p t
                          helm-scroll-amount 4 ; scroll 4 lines other window using M-<next>/M-<prior>
                          helm-quick-update t ; do not display invisible candidates
@@ -204,6 +208,18 @@
                :after (progn
                         (add-hook 'emacs-lisp-mode-hook 'aggressive-indent-mode)))
 
+        (:name web-mode
+               :after (progn
+                        (require 'web-mode)
+                        (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+                        (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+                        (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+                        (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+                        (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+                        (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+                        (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+                        (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))))
+
         (:name emmet-mode
                :after (progn
                         (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
@@ -233,6 +249,7 @@
          markdown-mode ;; yep
          iy-go-to-char ;; jump to next occurrence of char
          asciidoc
+         web-mode
          ;; adoc-mode
          solarized-emacs
          multiple-cursors) ;; multiple cursors
@@ -274,7 +291,7 @@
  '(column-number-mode t)
  '(custom-safe-themes
    (quote
-    ("c3c0a3702e1d6c0373a0f6a557788dfd49ec9e66e753fb24493579859c8e95ab" "479eba125f9e97a0208b642a99eee1d816fa208fe3a06f73e444504beb0b17f7" "1297a022df4228b81bc0436230f211bad168a117282c20ddcba2db8c6a200743" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "31a01668c84d03862a970c471edbd377b2430868eccf5e8a9aec6831f1a0908d" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" default)))
+    ("087c9d7433a9e062098ef09894ea982db743172fb2d8a35b550f8ea01a4d3296" "c3c0a3702e1d6c0373a0f6a557788dfd49ec9e66e753fb24493579859c8e95ab" "479eba125f9e97a0208b642a99eee1d816fa208fe3a06f73e444504beb0b17f7" "1297a022df4228b81bc0436230f211bad168a117282c20ddcba2db8c6a200743" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "31a01668c84d03862a970c471edbd377b2430868eccf5e8a9aec6831f1a0908d" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" default)))
  '(font-use-system-font t)
  '(frame-background-mode (quote light))
  '(line-number-mode 1)
@@ -298,6 +315,7 @@
  '(syslog-warn-face
    (quote
     ((t :background unspecified :foreground "#FD971F" :weight bold))))
+ '(tabbar-mode t nil (tabbar))
  '(text-mode-hook
    (quote
     (turn-on-auto-fill
@@ -324,3 +342,4 @@
 (put 'upcase-region 'disabled nil)
 
 
+(put 'downcase-region 'disabled nil)

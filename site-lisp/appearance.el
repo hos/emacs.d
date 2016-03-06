@@ -15,7 +15,7 @@
                     ;; :family "DejaVu Sans Mono" :height 110)
                     ;; :family "Hack" :height 120)
                     ;; :family "Hack" :height 120)
-                    :family "Consolas" :height 130)
+                    :family "Consolas" :height 110)
 
 (setq-default line-spacing 1)
 
