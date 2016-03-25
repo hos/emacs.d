@@ -153,7 +153,7 @@
                         (global-set-key (kbd "M-x") 'helm-M-x)
                         (global-set-key (kbd "M-y") 'helm-show-kill-ring)
                         ;; (global-set-key (kbd "C-x b") 'helm-mini)
-                        ;; (global-set-key (kbd "C-x C-f") 'helm-find-files)
+                        (global-set-key (kbd "C-x C-f") 'helm-find-files)
                         ;; (global-set-key (kbd "C-c h s") 'helm-semantic-or-imenu)
                         ;; (global-set-key (kbd "C-c h m") 'helm-man-woman)
                         ;; (global-set-key (kbd "C-c h f") 'helm-find)
@@ -176,6 +176,10 @@
 
         ;; (:name auctex
         ;;        :after (setq texmathp-tex-commands (quote (("\\eqn"  arg-on)))))
+
+        (:name reftex
+               :after (progn (require 'reftex)
+                             (add-hook 'LaTeX-mode-hook 'turn-on-reftex)))
 
 
         ;; (:name adoc-mode
@@ -237,6 +241,7 @@
          auto-complete ;; auto complete for emacs
          helm ;; incremental completion and selection narrowing framework
          auctex ;; most sophisticated TeX and LaTeX package for emacs
+         reftex ;; references in LaTeX
          undo-tree ;; sane undoing
          yasnippet ;; snipets
          expand-region ;; context sensitive scoping
