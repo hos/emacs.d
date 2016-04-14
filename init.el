@@ -28,8 +28,52 @@
     (goto-char (point-max))
     (eval-print-last-sexp)))
 
-;; (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
-(el-get 'sync)
+;; (el-get 'sync)
+
+
+;; my packages
+(setq hos-packages
+      (append
+       ;; list of packages we use straight from official recipes
+       '(git-timemachine ;; switch through different versions of file
+         auto-complete ;; auto complete for emacs
+         helm ;; incremental completion and selection narrowing framework
+         auctex ;; most sophisticated TeX and LaTeX package for emacs
+         reftex ;; references in LaTeX
+         undo-tree ;; sane undoing
+         yasnippet ;; snipets
+         expand-region ;; context sensitive scoping
+         nyan-mode ;; show nyan cat status bar
+         org-mode ;; organize the universe
+         slime ;; superior lisp interaction mode for emacs
+         aggressive-indent-mode ;; i love me some indentation
+         rainbow-delimiters ;; pretty colors for those scopes
+         emmet-mode ;; zen coding
+         markdown-mode ;; yep
+         iy-go-to-char ;; jump to next occurrence of char
+         asciidoc
+         web-mode
+         tabbar
+         ;; adoc-mode
+         ;; elpy ;; python packages
+         solarized-emacs
+         multiple-cursors) ;; multiple cursors
+       ;; swiper
+       ;; magit ;; better git support
+       ;; epresent ;; emacs presentations with org-mode
+       ;; ac-math ;; auto-complete math
+       ;; projectile ;; manage projects easier
+       ;; evil ;; vi emulation
+       ;; fiplr ;; fuzzy file search
+
+
+       (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))))
+
+;; py-yapf
+(el-get-bundle py-yapf
+  :url "https://github.com/paetzke/py-yapf.el.git"
+  :features py-yapf)
+
 
 (setq el-get-sources
       '((:name el-get :branch "master")
@@ -233,42 +277,7 @@
                :after (global-undo-tree-mode 1))))
 
 
-;; my packages
-(setq hos-packages
-      (append
-       ;; list of packages we use straight from official recipes
-       '(git-timemachine ;; switch through different versions of file
-         auto-complete ;; auto complete for emacs
-         helm ;; incremental completion and selection narrowing framework
-         auctex ;; most sophisticated TeX and LaTeX package for emacs
-         reftex ;; references in LaTeX
-         undo-tree ;; sane undoing
-         yasnippet ;; snipets
-         expand-region ;; context sensitive scoping
-         nyan-mode ;; show nyan cat status bar
-         org-mode ;; organize the universe
-         slime ;; superior lisp interaction mode for emacs
-         aggressive-indent-mode ;; i love me some indentation
-         rainbow-delimiters ;; pretty colors for those scopes
-         emmet-mode ;; zen coding
-         markdown-mode ;; yep
-         iy-go-to-char ;; jump to next occurrence of char
-         asciidoc
-         web-mode
-         ;; adoc-mode
-         solarized-emacs
-         multiple-cursors) ;; multiple cursors
-       ;; swiper
-       ;; magit ;; better git support
-       ;; epresent ;; emacs presentations with org-mode
-       ;; ac-math ;; auto-complete math
-       ;; projectile ;; manage projects easier
-       ;; evil ;; vi emulation
-       ;; fiplr ;; fuzzy file search
-
-
-       (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))))
-
+;; (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
 (el-get 'sync hos-packages)
 
 ;; Local units
