@@ -54,6 +54,7 @@
          asciidoc
          web-mode
          tabbar
+         julia-mode
          ;; adoc-mode
          ;; elpy ;; python packages
          solarized-emacs
@@ -357,3 +358,4 @@
 
 
 (put 'downcase-region 'disabled nil)
+(put 'scroll-left 'disabled nil)
