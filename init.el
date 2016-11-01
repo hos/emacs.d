@@ -2,6 +2,13 @@
 ;; top level initialization file for emacs
 
 ;; Set path to dependencies
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (setq site-lisp-dir
       (expand-file-name "site-lisp" user-emacs-directory))
 
@@ -44,21 +51,23 @@
          yasnippet ;; snipets
          expand-region ;; context sensitive scoping
          nyan-mode ;; show nyan cat status bar
-         org-mode ;; organize the universe
-         slime ;; superior lisp interaction mode for emacs
-         aggressive-indent-mode ;; i love me some indentation
-         rainbow-delimiters ;; pretty colors for those scopes
-         emmet-mode ;; zen coding
          markdown-mode ;; yep
          iy-go-to-char ;; jump to next occurrence of char
-         asciidoc
          web-mode
          tabbar
-         julia-mode
-         ;; adoc-mode
-         ;; elpy ;; python packages
+         moe-theme
+         monokai-theme
          solarized-emacs
          multiple-cursors) ;; multiple cursors
+       ;; org-mode ;; organize the universe
+       ;; slime ;; superior lisp interaction mode for emacs
+       ;; aggressive-indent-mode ;; i love me some indentation
+       ;; rainbow-delimiters ;; pretty colors for those scopes
+       ;; emmet-mode ;; zen coding
+       ;; asciidoc
+       ;; adoc-mode
+       ;; elpy ;; python packages
+       ;; julia-mode
        ;; swiper
        ;; magit ;; better git support
        ;; epresent ;; emacs presentations with org-mode
@@ -107,7 +116,7 @@
                         (add-hook 'LaTeX-mode-hook 'my-ac-latex-mode)
                         (setq ac-math-unicode-in-math-p t)
                         ;;
-                        (add-to-list 'ac-modes 'org-mode) ; auto-complete for org-mode
+                        ; (add-to-list 'ac-modes 'org-mode) ; auto-complete for org-mode
                         ;;
                         (require 'auto-complete-config)
                         ;; (define-key ac-menu-map (kbd "M-TAB") 'ac-next)
@@ -292,7 +301,7 @@
 (require 'init-perl)
 (require 'init-python)
 (require 'init-latex)
-(require 'init-org-mode)
+; (require 'init-org-mode)
 (require 'init-octave)
 
 ;; Site-lisp packages
