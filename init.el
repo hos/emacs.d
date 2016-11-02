@@ -53,7 +53,9 @@
          nyan-mode ;; show nyan cat status bar
          markdown-mode ;; yep
          iy-go-to-char ;; jump to next occurrence of char
-         web-mode
+         ;; web-mode
+         mmm-mode
+         ;; psgml-mode
          tabbar
          moe-theme
          monokai-theme
@@ -116,7 +118,7 @@
                         (add-hook 'LaTeX-mode-hook 'my-ac-latex-mode)
                         (setq ac-math-unicode-in-math-p t)
                         ;;
-                        ; (add-to-list 'ac-modes 'org-mode) ; auto-complete for org-mode
+                                        ; (add-to-list 'ac-modes 'org-mode) ; auto-complete for org-mode
                         ;;
                         (require 'auto-complete-config)
                         ;; (define-key ac-menu-map (kbd "M-TAB") 'ac-next)
@@ -137,6 +139,41 @@
                         ;;(tabbar-mode t)
                         (global-set-key [M-left] 'tabbar-backward-tab)
                         (global-set-key [M-right] 'tabbar-forward-tab)))
+
+        (:name mmm-mode
+               :after (progn
+                        (require 'mmm-mode)
+                        (setq mmm-global-mode 'maybe)
+                        ;;
+                        ;; set up an mmm group for fancy html editing
+                        (mmm-add-group
+                         'fancy-html
+                         '(
+                           (html-php-tagged
+                            :submode php-mode
+                            :face mmm-code-submode-face
+                            :front "<[?]php"
+                            :back "[?]>")
+                           (html-css-attribute
+                            :submode css-mode
+                            :face mmm-declaration-submode-face
+                            :front "styleREMOVEME=\""
+                            :back "\"")))
+                        ;;
+                        ;; What files to invoke the new html-mode for?
+                        (add-to-list 'auto-mode-alist '("\\.inc\\'" . html-mode))
+                        (add-to-list 'auto-mode-alist '("\\.phtml\\'" . html-mode))
+                        (add-to-list 'auto-mode-alist '("\\.php[34]?\\'" . html-mode))
+                        (add-to-list 'auto-mode-alist '("\\.[sj]?html?\\'" . html-mode))
+                        (add-to-list 'auto-mode-alist '("\\.jsp\\'" . html-mode))
+                        ;;
+                        ;; What features should be turned on in this html-mode?
+                        (add-to-list 'mmm-mode-ext-classes-alist '(html-mode nil html-js))
+                        (add-to-list 'mmm-mode-ext-classes-alist '(html-mode nil embedded-css))
+                        (add-to-list 'mmm-mode-ext-classes-alist '(html-mode nil fancy-html))
+                        ;;
+                        ))
+
 
         ;; (:name column-marker
         ;;        :after (progn (add-hook 'c-mode-hook (lambda () (interactive) (column-marker-1 80)))
@@ -266,17 +303,19 @@
                :after (progn
                         (add-hook 'emacs-lisp-mode-hook 'aggressive-indent-mode)))
 
-        (:name web-mode
-               :after (progn
-                        (require 'web-mode)
-                        (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-                        (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-                        (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-                        (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-                        (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-                        (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-                        (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-                        (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))))
+        ;; (:name web-mode
+        ;;        :after (progn
+        ;;                 (require 'web-mode)
+        ;;                 (setq-default web-mode-comment-formats (remove '("javascript" . "/*") web-mode-comment-formats))
+        ;;                 (add-to-list 'web-mode-comment-formats '("javascript" . "//"))
+        ;;                 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+        ;;                 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+        ;;                 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+        ;;                 (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+        ;;                 (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+        ;;                 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+        ;;                 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+        ;;                 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))))
 
         (:name emmet-mode
                :after (progn
