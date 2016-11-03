@@ -129,10 +129,12 @@
                :after (global-set-key (kbd "C-S-p") 'fiplr-find-file))
 
         (:name multiple-cursors
-               :after (progn (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-                             (global-set-key (kbd "C->") 'mc/mark-next-like-this)
-                             (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-                             (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)))
+               :after (progn
+                        (require 'multiple-cursors)
+                        (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+                        (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+                        (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+                        (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)))
 
         (:name tabbar
                :after (progn  ;;(require 'tabbar)
@@ -340,6 +342,7 @@
 (require 'init-perl)
 (require 'init-python)
 (require 'init-latex)
+(require 'init-html)
 ; (require 'init-org-mode)
 (require 'init-octave)
 
