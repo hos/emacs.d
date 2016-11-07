@@ -403,10 +403,6 @@
 ;; load keybindings last for love
 (require 'keybindings)
 
-;; activate evil-mode because some men just want to watch the world burn
-;; (evil-mode)
 (put 'upcase-region 'disabled nil)
-
-
 (put 'downcase-region 'disabled nil)
 (put 'scroll-left 'disabled nil)

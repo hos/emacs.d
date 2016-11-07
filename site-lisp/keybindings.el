@@ -2,26 +2,24 @@
 ;; (define-key global-map [mouse-4] (lambda () (interactive) (scroll-down 4)))
 ;; (define-key global-map [mouse-5] (lambda () (interactive) (scroll-up 4)))
 
-;; (define-key global-map [(control mouse-4)] 'next-buffer)
-;; (define-key global-map [(control mouse-5)] 'bury-buffer)
 
-(global-set-key [control mouse-4] 'bury-buffer)
-(global-set-key [control mouse-5] 'next-buffer)
+;; (global-set-key [control mouse-4] 'bury-buffer)
+;; (global-set-key [control mouse-5] 'next-buffer)
 
 ;; (global-set-key [mouse-4] 'tabbar-backward-tab)
 ;; (global-set-key [mouse-5] 'tabbar-forward-tab)
 
 ;; Easier buffer switching
-(global-set-key [home] 'next-buffer)
-(global-set-key [end]  'bury-buffer)
+;; (global-set-key [home] 'next-buffer)
+;; (global-set-key [end]  'bury-buffer)
 
 (global-set-key [C-tab] 'next-buffer)
 (global-set-key [C-S-iso-lefttab] 'bury-buffer)
 
 ;; Meta-up/down to do Page Up and Page Down, as the regular Page Up and
 ;; Page down does not repeat, making it tedious to scroll large documents.
-(global-set-key [M-up] 'scroll-down)
-(global-set-key [M-down] 'scroll-up)
+;; (global-set-key [M-up] 'scroll-down)
+;; (global-set-key [M-down] 'scroll-up)
 
 ;; Disable Ctrl-Z minimization/suspension of emacs.
 (global-set-key [C-z] nil)
@@ -65,7 +63,7 @@
 ;;             ))
 ;; Move to match if on (){}[] when pressing %, otherwise insert %.
 
-(global-set-key "%" 'match-paren)
+(global-set-key (kbd "C-%") 'match-paren)
 
 ;;(global-set-key [f1] 'ansi-term)
 
@@ -82,7 +80,7 @@
 
 ;; toggling comments
 (global-set-key (kbd "M-;") 'comment-or-uncomment-region-or-line)
-(global-set-key (kbd "C-c C-c") 'comment-or-uncomment-region-or-line)
+;; (global-set-key (kbd "C-c C-c") 'comment-or-uncomment-region-or-line)
 
 (global-set-key (kbd "M-W") 'copy-and-comment-region)
 
@@ -102,10 +100,10 @@
 (global-set-key [(meta return)] 'toggle-fullscreen)
 
 ;; compilation
-(global-set-key [f5] 'compile)
+;; (global-set-key [f5] 'compile)
 
 ;; run kmacro
-(global-set-key [f7] 'kmacro-call-macro)
+;; (global-set-key [f7] 'kmacro-call-macro)
 
 ;; that dirty habit
 (global-set-key [f2] 'save-buffer)
