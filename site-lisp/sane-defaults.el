@@ -149,6 +149,8 @@
 ;; (global-set-key [C-right] 'evil-forward-word-begin)
 ;; (global-set-key [C-left] 'evil-backward-word-begin)
 
+(setq backup-directory-alist `(("." . "~/.emacs_backups")))
+
 
 (provide 'sane-defaults)
 
