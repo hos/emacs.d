@@ -10,6 +10,8 @@
 (setq c-default-style "k&r"
       c-basic-offset 2)
 
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+
 
 ;; (add-hook 'c-mode-hook
 ;;           '(lambda ()

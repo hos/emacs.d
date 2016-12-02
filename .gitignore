@@ -3,3 +3,11 @@ auto-save-list/
 el-get/
 history
 *~
+\#*\#
+recentf/
+eshell/
+.mc-lists.el
+.org-id-locations
+emacs-relatex
+recentf
+tramp

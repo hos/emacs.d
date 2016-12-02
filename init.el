@@ -56,16 +56,17 @@
          ;; web-mode
          mmm-mode
          ;; psgml-mode
+         emmet-mode ;; zen coding
          tabbar
          moe-theme
          monokai-theme
          solarized-emacs
+         typescript-mode
          multiple-cursors) ;; multiple cursors
        ;; org-mode ;; organize the universe
        ;; slime ;; superior lisp interaction mode for emacs
        ;; aggressive-indent-mode ;; i love me some indentation
        ;; rainbow-delimiters ;; pretty colors for those scopes
-       ;; emmet-mode ;; zen coding
        ;; asciidoc
        ;; adoc-mode
        ;; elpy ;; python packages
@@ -343,6 +344,7 @@
 (require 'init-python)
 (require 'init-latex)
 (require 'init-html)
+(require 'init-js)
 ; (require 'init-org-mode)
 (require 'init-octave)
 
@@ -357,7 +359,7 @@
  '(column-number-mode t)
  '(custom-safe-themes
    (quote
-    ("087c9d7433a9e062098ef09894ea982db743172fb2d8a35b550f8ea01a4d3296" "c3c0a3702e1d6c0373a0f6a557788dfd49ec9e66e753fb24493579859c8e95ab" "479eba125f9e97a0208b642a99eee1d816fa208fe3a06f73e444504beb0b17f7" "1297a022df4228b81bc0436230f211bad168a117282c20ddcba2db8c6a200743" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "31a01668c84d03862a970c471edbd377b2430868eccf5e8a9aec6831f1a0908d" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" default)))
+    ("32e3693cd7610599c59997fee36a68e7dd34f21db312a13ff8c7e738675b6dfc" "74278d14b7d5cf691c4d846a4bbf6e62d32104986f104c1e61f718f9669ec04b" "087c9d7433a9e062098ef09894ea982db743172fb2d8a35b550f8ea01a4d3296" "c3c0a3702e1d6c0373a0f6a557788dfd49ec9e66e753fb24493579859c8e95ab" "479eba125f9e97a0208b642a99eee1d816fa208fe3a06f73e444504beb0b17f7" "1297a022df4228b81bc0436230f211bad168a117282c20ddcba2db8c6a200743" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "31a01668c84d03862a970c471edbd377b2430868eccf5e8a9aec6831f1a0908d" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" default)))
  '(font-use-system-font t)
  '(frame-background-mode (quote light))
  '(line-number-mode 1)
