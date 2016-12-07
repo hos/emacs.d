@@ -62,7 +62,9 @@
          monokai-theme
          solarized-emacs
          typescript-mode
+         speedbar-extension
          multiple-cursors) ;; multiple cursors
+       ;; neotree
        ;; org-mode ;; organize the universe
        ;; slime ;; superior lisp interaction mode for emacs
        ;; aggressive-indent-mode ;; i love me some indentation
@@ -125,6 +127,51 @@
                         ;; (define-key ac-menu-map (kbd "M-TAB") 'ac-next)
                         ;; (define-key ac-menu-map (kbd "<M-backtab>") 'ac-previous)
                         ))
+
+
+        (:name speedbar-extension
+               :after (progn
+                        ;; (require 'speedbar-extension)
+                        ;; (speedbar-show-unknown-files t)
+                        ;; (setq speedbar-file-unshown-regexp "\\.o\\'\\|~\\'\\|\\.bin\\'\\|\\.lbin\\'\\|\\.so\\'\\|\\.a\\'\\|\\.ln\\'\\|\\.blg\\'\\|\\.bbl\\'\\|\\.elc\\'\\|\\.lof\\'\\|\\.glo\\'\\|\\.idx\\'\\|\\.lot\\'\\|\\.svn/\\'\\|\\.hg/\\'\\|\\.git/\\'\\|\\.bzr/\\'\\|CVS/\\'\\|_darcs/\\'\\|_MTN/\\'\\|\\.fmt\\'\\|\\.tfm\\'\\|\\.class\\'\\|\\.fas\\'\\|\\.lib\\'\\|\\.mem\\'\\|\\.x86f\\'\\|\\.sparcf\\'\\|\\.dfsl\\'\\|\\.pfsl\\'\\|\\.d64fsl\\'\\|\\.p64fsl\\'\\|\\.lx64fsl\\'\\|\\.lx32fsl\\'\\|\\.dx64fsl\\'\\|\\.dx32fsl\\'\\|\\.fx64fsl\\'\\|\\.fx32fsl\\'\\|\\.sx64fsl\\'\\|\\.sx32fsl\\'\\|\\.wx64fsl\\'\\|\\.wx32fsl\\'\\|\\.fasl\\'\\|\\.ufsl\\'\\|\\.fsl\\'\\|\\.dxl\\'\\|\\.lo\\'\\|\\.la\\'\\|\\.gmo\\'\\|\\.mo\\'\\|\\.toc\\'\\|\\.aux\\'\\|\\.cp\\'\\|\\.fn\\'\\|\\.ky\\'\\|\\.pg\\'\\|\\.tp\\'\\|\\.vr\\'\\|\\.cps\\'\\|\\.fns\\'\\|\\.kys\\'\\|\\.pgs\\'\\|\\.tps\\'\\|\\.vrs\\'\\|\\.pyc\\'\\|\\.pyo\\'\\|#[^#]+#$\\|\\.\\.?\\'\\|\\.#|\\.js\\.map")
+                        (setq speedbar-supported-extension-expressions
+                          (quote
+                           (".[ch]\\(\\+\\+\\|pp\\|c\\|h\\|xx\\)?"
+                            ".tex\\(i\\(nfo\\)?\\)?"
+                            ".el"
+                            ".emacs"
+                            ".css"
+                            ".l"
+                            ".lsp"
+                            ".p"
+                            ".java"
+                            ".f\\(90\\|77\\|or\\)?"
+                            ".ad[abs]"
+                            ".p[lm]"
+                            ".tcl"
+                            ".m"
+                            ".scm"
+                            ".pm"
+                            ".py"
+                            ".g"
+                            ".s?html"
+                            ".ma?k"
+                            "[Mm]akefile\\(\\.in\\)?"
+                            ".ts")))
+                        (global-set-key [f8] 'speedbar)))
+
+        ;; (:name neotree
+        ;;        :after (progn
+        ;;                 (require 'neotree)
+        ;;                 (setq neo-hidden-regexp-list '("^\\."
+        ;;                                                "\\.pyc$"
+        ;;                                                "~$"
+        ;;                                                "^#.*#$"
+        ;;                                                "\\.js\\.map$"
+        ;;                                                "\\.elc$"))
+        ;;                 (setq neo-show-hidden-files nil)
+        ;;                 (global-set-key [f8] 'neotree-toggle)))
+
 
         (:name fiplr
                :after (global-set-key (kbd "C-S-p") 'fiplr-find-file))
@@ -356,14 +403,30 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["#272822" "#F92672" "#A6E22E" "#E6DB74" "#66D9EF" "#FD5FF0" "#A1EFE4" "#F8F8F2"])
  '(column-number-mode t)
+ '(compilation-message-face (quote default))
  '(custom-safe-themes
    (quote
-    ("32e3693cd7610599c59997fee36a68e7dd34f21db312a13ff8c7e738675b6dfc" "74278d14b7d5cf691c4d846a4bbf6e62d32104986f104c1e61f718f9669ec04b" "087c9d7433a9e062098ef09894ea982db743172fb2d8a35b550f8ea01a4d3296" "c3c0a3702e1d6c0373a0f6a557788dfd49ec9e66e753fb24493579859c8e95ab" "479eba125f9e97a0208b642a99eee1d816fa208fe3a06f73e444504beb0b17f7" "1297a022df4228b81bc0436230f211bad168a117282c20ddcba2db8c6a200743" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "31a01668c84d03862a970c471edbd377b2430868eccf5e8a9aec6831f1a0908d" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" default)))
+    ("f39f2583c6aa9107d058c54067f62e30194b204fa35c8e8fc41fba7cc30f8ddc" "32e3693cd7610599c59997fee36a68e7dd34f21db312a13ff8c7e738675b6dfc" "74278d14b7d5cf691c4d846a4bbf6e62d32104986f104c1e61f718f9669ec04b" "087c9d7433a9e062098ef09894ea982db743172fb2d8a35b550f8ea01a4d3296" "c3c0a3702e1d6c0373a0f6a557788dfd49ec9e66e753fb24493579859c8e95ab" "479eba125f9e97a0208b642a99eee1d816fa208fe3a06f73e444504beb0b17f7" "1297a022df4228b81bc0436230f211bad168a117282c20ddcba2db8c6a200743" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "31a01668c84d03862a970c471edbd377b2430868eccf5e8a9aec6831f1a0908d" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" default)))
+ '(fci-rule-color "#49483E")
  '(font-use-system-font t)
  '(frame-background-mode (quote light))
+ '(highlight-changes-colors (quote ("#FD5FF0" "#AE81FF")))
+ '(highlight-tail-colors
+   (quote
+    (("#49483E" . 0)
+     ("#67930F" . 20)
+     ("#349B8D" . 30)
+     ("#21889B" . 50)
+     ("#968B26" . 60)
+     ("#A45E0A" . 70)
+     ("#A41F99" . 85)
+     ("#49483E" . 100))))
  '(line-number-mode 1)
  '(load-home-init-file t t)
+ '(magit-diff-use-overlays nil)
  '(menu-bar-mode nil)
  '(scroll-bar-mode (quote right))
  '(scroll-bar-position (quote left))
@@ -393,7 +456,32 @@
         (quote indent-or-complete)))
      flyspell-mode text-mode-hook-identify)))
  '(tool-bar-mode nil)
- '(tool-bar-style (quote image)))
+ '(tool-bar-style (quote image))
+ '(vc-annotate-background nil)
+ '(vc-annotate-color-map
+   (quote
+    ((20 . "#F92672")
+     (40 . "#CF4F1F")
+     (60 . "#C26C0F")
+     (80 . "#E6DB74")
+     (100 . "#AB8C00")
+     (120 . "#A18F00")
+     (140 . "#989200")
+     (160 . "#8E9500")
+     (180 . "#A6E22E")
+     (200 . "#729A1E")
+     (220 . "#609C3C")
+     (240 . "#4E9D5B")
+     (260 . "#3C9F79")
+     (280 . "#A1EFE4")
+     (300 . "#299BA6")
+     (320 . "#2896B5")
+     (340 . "#2790C3")
+     (360 . "#66D9EF"))))
+ '(vc-annotate-very-old-color nil)
+ '(weechat-color-list
+   (quote
+    (unspecified "#272822" "#49483E" "#A20C41" "#F92672" "#67930F" "#A6E22E" "#968B26" "#E6DB74" "#21889B" "#66D9EF" "#A41F99" "#FD5FF0" "#349B8D" "#A1EFE4" "#F8F8F2" "#F8F8F0"))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
