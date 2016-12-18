@@ -46,9 +46,9 @@
 ;; (load-theme 'monokai t)
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/molokai-emacs")
-(load-theme 'molokai t)
+;; (load-theme 'molokai t)
 ;; (load-theme 'moe-dark t)
-;; (load-theme 'monokai t)
+(load-theme 'monokai t)
 
 ;; (load-theme 'solarized-dark t)
 
