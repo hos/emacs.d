@@ -1,5 +1,5 @@
 ;; Hungry delete is nice since we use spaces instead of tabs.
-(setq c-hungry-delete-key t)
+;; (setq c-hungry-delete-key t)
 ;;(setq-default c-basic-offset 2)
 
 ;; Let emacs insert newlines automatically whenever it can.
