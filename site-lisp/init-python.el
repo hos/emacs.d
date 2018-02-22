@@ -4,4 +4,15 @@
 (setq python-python-command "/usr/bin/python2")
 (add-to-list 'auto-mode-alist '("\\.ufl\\'" . python-mode))
 
+(defun python-add-breakpoint ()
+  "Add a break point"
+  (interactive)
+  (newline-and-indent)
+  (insert "import ipdb; ipdb.set_trace()")
+  (highlight-lines-matching-regexp "^[ ]*import ipdb; ipdb.set_trace()"))
+
+
+(add-hook 'python-mode-hook
+          '(lambda () (define-key python-mode-map (kbd "C-c C-b") 'python-add-breakpoint)))
+
 (provide 'init-python)
