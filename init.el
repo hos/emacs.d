@@ -55,6 +55,7 @@
          iy-go-to-char ;; jump to next occurrence of char
          ;; web-mode
          mmm-mode
+         cmake-mode
          ;; psgml-mode
          emmet-mode ;; zen coding
          tabbar
