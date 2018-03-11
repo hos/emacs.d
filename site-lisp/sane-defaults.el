@@ -124,6 +124,8 @@
 ;; Use spaces instead of tabs.
 (setq-default indent-tabs-mode nil)
 
+(setq-default tab-width 4) ; or any other preferred value
+
 ;; Make sure that the file ends in a newline.
 (setq require-final-newline t)
 
