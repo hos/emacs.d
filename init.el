@@ -56,6 +56,7 @@
          ;; web-mode
          mmm-mode
          cmake-mode
+         yaml-mode
          ;; psgml-mode
          emmet-mode ;; zen coding
          tabbar
