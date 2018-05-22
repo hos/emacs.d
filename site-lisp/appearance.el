@@ -10,12 +10,8 @@
 
 ;; Change the font
 (set-face-attribute 'default nil
-                    ;; :family "DejaVu Sans Mono" :height 140)
-                    ;; :family "DejaVu Sans Mono" :height 120)
-                    ;; :family "DejaVu Sans Mono" :height 110)
-                    ;; :family "Hack" :height 120)
-                    ;; :family "Hack" :height 120)
-                    :family "Consolas" :height 90)
+                    :family "Consolas" :height 110)
+                    ;; :family "Consolas" :height 90)
 
 (setq-default line-spacing 1)
 
