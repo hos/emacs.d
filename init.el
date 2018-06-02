@@ -59,6 +59,7 @@
          yaml-mode
          json-mode
          solidity-mode
+         flycheck
          ;; psgml-mode
          emmet-mode ;; zen coding
          tabbar
@@ -404,6 +405,7 @@
 (require 'init-js)
 ; (require 'init-org-mode)
 (require 'init-octave)
+(require 'init-solidity)
 
 ;; Site-lisp packages
 (require 'turkish-mode)
