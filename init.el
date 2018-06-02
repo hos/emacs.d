@@ -58,6 +58,7 @@
          cmake-mode
          yaml-mode
          json-mode
+         solidity-mode
          ;; psgml-mode
          emmet-mode ;; zen coding
          tabbar
@@ -98,6 +99,11 @@
 
         (:name yasnippet
                :after (yas-global-mode 1))
+
+        (:name solidity-mode
+               :after (progn
+                        (require 'solidity-mode)
+                        ))
 
         (:name auto-complete
                :after (progn
