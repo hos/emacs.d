@@ -68,6 +68,7 @@
          solarized-emacs
          typescript-mode
          speedbar-extension
+         scala-mode
          multiple-cursors) ;; multiple cursors
        ;; neotree
        ;; org-mode ;; organize the universe
@@ -103,7 +104,9 @@
 
         (:name solidity-mode
                :after (progn
+                        (setq solidity-solium-path "/bin/solium")
                         (require 'solidity-mode)
+                        (require 'init-solidity)
                         ))
 
         (:name auto-complete
@@ -405,7 +408,7 @@
 (require 'init-js)
 ; (require 'init-org-mode)
 (require 'init-octave)
-(require 'init-solidity)
+
 
 ;; Site-lisp packages
 (require 'turkish-mode)

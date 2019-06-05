@@ -153,6 +153,7 @@
 
 (setq backup-directory-alist `(("." . "~/.emacs_backups")))
 
+;; (global-display-line-numbers-mode 1)
 
 (provide 'sane-defaults)
 
