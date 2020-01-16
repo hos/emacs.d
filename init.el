@@ -69,6 +69,7 @@
          typescript-mode
          speedbar-extension
          scala-mode
+         rust-mode
          multiple-cursors) ;; multiple cursors
        ;; neotree
        ;; org-mode ;; organize the universe
