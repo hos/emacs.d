@@ -73,7 +73,6 @@
          speedbar-extension
          scala-mode
          rust-mode
-         py-yapf
          multiple-cursors) ;; multiple cursors
        ;; neotree
        ;; org-mode ;; organize the universe
@@ -94,11 +93,6 @@
 
 
        (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))))
-
-;; py-yapf
-(el-get-bundle py-yapf
-  :url "https://github.com/paetzke/py-yapf.el.git"
-  :features py-yapf)
 
 
 (setq el-get-sources
