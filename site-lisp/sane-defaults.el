@@ -129,11 +129,12 @@
 ;; Make sure that the file ends in a newline.
 (setq require-final-newline t)
 
-;; Auto-fill in text mode
+;; Visual-line
 (add-hook 'text-mode-hook
           '(lambda ()
-             (turn-on-auto-fill)
-             (auto-fill-mode 1)
+             ;; (turn-on-auto-fill)
+             ;; (auto-fill-mode 1)
+             (visual-line-mode 1)
              ))
 
 ;; Make text-mode the default mode, so that we can use the tab-completion

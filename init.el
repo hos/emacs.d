@@ -7,6 +7,9 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+
 (package-initialize)
 
 (setq site-lisp-dir
@@ -70,6 +73,7 @@
          speedbar-extension
          scala-mode
          rust-mode
+         py-yapf
          multiple-cursors) ;; multiple cursors
        ;; neotree
        ;; org-mode ;; organize the universe
@@ -394,6 +398,8 @@
 ;; (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
 (el-get 'sync hos-packages)
 
+(require 'el-get-elpa)
+
 ;; Local units
 (require 'appearance)
 (require 'sane-defaults)
@@ -425,7 +431,7 @@
  '(compilation-message-face (quote default))
  '(custom-safe-themes
    (quote
-    ("c924950f6b5b92a064c5ad7063bb34fd3facead47cd0d761a31e7e76252996f7" "8dc4a35c94398efd7efee3da06a82569f660af8790285cd211be006324a4c19a" "fe230d2861a13bb969b5cdf45df1396385250cc0b7933b8ab9a2f9339b455f5c" "f39f2583c6aa9107d058c54067f62e30194b204fa35c8e8fc41fba7cc30f8ddc" "32e3693cd7610599c59997fee36a68e7dd34f21db312a13ff8c7e738675b6dfc" "74278d14b7d5cf691c4d846a4bbf6e62d32104986f104c1e61f718f9669ec04b" "087c9d7433a9e062098ef09894ea982db743172fb2d8a35b550f8ea01a4d3296" "c3c0a3702e1d6c0373a0f6a557788dfd49ec9e66e753fb24493579859c8e95ab" "479eba125f9e97a0208b642a99eee1d816fa208fe3a06f73e444504beb0b17f7" "1297a022df4228b81bc0436230f211bad168a117282c20ddcba2db8c6a200743" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "31a01668c84d03862a970c471edbd377b2430868eccf5e8a9aec6831f1a0908d" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" default)))
+    ("d91ef4e714f05fff2070da7ca452980999f5361209e679ee988e3c432df24347" "0598c6a29e13e7112cfbc2f523e31927ab7dce56ebb2016b567e1eff6dc1fd4f" "837f2d1e6038d05f29bbcc0dc39dbbc51e5c9a079e8ecd3b6ef09fc0b149ceb1" "c924950f6b5b92a064c5ad7063bb34fd3facead47cd0d761a31e7e76252996f7" "8dc4a35c94398efd7efee3da06a82569f660af8790285cd211be006324a4c19a" "fe230d2861a13bb969b5cdf45df1396385250cc0b7933b8ab9a2f9339b455f5c" "f39f2583c6aa9107d058c54067f62e30194b204fa35c8e8fc41fba7cc30f8ddc" "32e3693cd7610599c59997fee36a68e7dd34f21db312a13ff8c7e738675b6dfc" "74278d14b7d5cf691c4d846a4bbf6e62d32104986f104c1e61f718f9669ec04b" "087c9d7433a9e062098ef09894ea982db743172fb2d8a35b550f8ea01a4d3296" "c3c0a3702e1d6c0373a0f6a557788dfd49ec9e66e753fb24493579859c8e95ab" "479eba125f9e97a0208b642a99eee1d816fa208fe3a06f73e444504beb0b17f7" "1297a022df4228b81bc0436230f211bad168a117282c20ddcba2db8c6a200743" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "31a01668c84d03862a970c471edbd377b2430868eccf5e8a9aec6831f1a0908d" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" default)))
  '(fci-rule-color "#49483E")
  '(font-use-system-font t)
  '(frame-background-mode (quote light))
@@ -444,6 +450,7 @@
  '(load-home-init-file t t)
  '(magit-diff-use-overlays nil)
  '(menu-bar-mode nil)
+ '(package-selected-packages (quote (format-all)))
  '(scroll-bar-mode (quote right))
  '(scroll-bar-position (quote left))
  '(show-paren-mode t)
@@ -465,12 +472,11 @@
  '(tabbar-mode t nil (tabbar))
  '(text-mode-hook
    (quote
-    (turn-on-auto-fill
-     (lambda nil
-       (local-set-key
-        (kbd "")
-        (quote indent-or-complete)))
-     flyspell-mode text-mode-hook-identify)))
+    (lambda nil
+      (local-set-key
+       (kbd "")
+       (quote indent-or-complete)))
+    flyspell-mode text-mode-hook-identify))
  '(tool-bar-mode nil)
  '(tool-bar-style (quote image))
  '(vc-annotate-background nil)
