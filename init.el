@@ -73,6 +73,8 @@
          speedbar-extension
          scala-mode
          rust-mode
+         lsp-mode
+         lsp-ui
          multiple-cursors) ;; multiple cursors
        ;; neotree
        ;; org-mode ;; organize the universe
@@ -385,6 +387,10 @@
                         (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
                         (add-hook 'css-mode-hook  'emmet-mode))) ;; enable Emmet's css abbreviation.
 
+        ;; (:name lsp-mode
+        ;;        :after (require 'lsp-clients))
+
+
         (:name undo-tree
                :after (global-undo-tree-mode 1))))
 
@@ -393,6 +399,21 @@
 (el-get 'sync hos-packages)
 
 (require 'el-get-elpa)
+
+;; (use-package flycheck
+;;   :hook (prog-mode . flycheck-mode))
+
+;; (use-package company
+;;   :hook (prog-mode . company-mode)
+;;   :config (setq company-tooltip-align-annotations t)
+;;           (setq company-minimum-prefix-length 1))
+
+;; (use-package lsp-mode
+;;   :commands lsp
+;;   :config (require 'lsp-clients))
+
+;; (use-package lsp-ui)
+
 
 ;; Local units
 (require 'appearance)

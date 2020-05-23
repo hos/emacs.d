@@ -15,8 +15,9 @@
 (add-hook 'python-mode-hook
           '(lambda ()
              (define-key python-mode-map (kbd "C-c C-b") 'python-add-breakpoint)
-             (format-all-mode)
+             ;; (format-all-mode)
              ;; (py-yapf-enable-on-save)
              ))
+
 
 (provide 'init-python)
