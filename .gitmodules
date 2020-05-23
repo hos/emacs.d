@@ -1,6 +1,6 @@
 [submodule "site-lisp/turkish-mode"]
 	path = site-lisp/turkish-mode
-	url = https://github.com/nrs/turkish-mode
+	url = https://github.com/osolmaz/turkish-mode
 [submodule "themes/molokai-emacs"]
 	path = themes/molokai-emacs
-	url = https://github.com/hos/molokai-emacs
+	url = https://github.com/osolmaz/molokai-emacs
