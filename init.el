@@ -122,6 +122,9 @@
                         ;;   "No maybe for you. Only AC!"
                         ;;   (auto-complete-mode 1))
                         ;;
+
+                        (add-to-list 'ac-modes 'rust-mode)
+
                         ;; LaTeX configuration
                         (add-to-list 'ac-modes 'latex-mode)
                         (add-to-list 'ac-modes 'octave-mode)
