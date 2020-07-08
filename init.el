@@ -75,6 +75,8 @@
          rust-mode
          lsp-mode
          lsp-ui
+         js2-mode
+         rjsx-mode
          multiple-cursors) ;; multiple cursors
        ;; neotree
        ;; org-mode ;; organize the universe
@@ -145,6 +147,10 @@
                         ;; (define-key ac-menu-map (kbd "<M-backtab>") 'ac-previous)
                         ))
 
+        (:name rjsx-mode
+               :after (progn
+                        (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
+                        ))
 
         (:name speedbar-extension
                :after (progn
